@@ -31,10 +31,8 @@ def init_db():
 def get_from_db(command):
     print(f"Execute {command}")
     db = get_db()
-    resp = db.execute(command)
-    for i in resp:
-        print(i)
-    
+    return db.execute(command)
+
 
 def push_into_db(command):
     print(f"Execute {command}")

@@ -29,16 +29,19 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
+    from . import db
     @app.route('/get_all_product_ids')
     def get_from_db():
-        from . import db
         command = f"SELECT id FROM product"
-        return "OK"
+        ids = db.get_from_db(command)
+        resp = ''
+        for i in ids:
+            resp += str(i['id']) + ":"
+        return resp
 
-    @app.route('/push/<int:id>/<float:price>/<string:desc>')
-    def push_into_db(id=None, price=None, desc=None):
-        from . import db
-        command = f"INSERT INTO product (price, description) VALUES ({id}, {price}, {desc})"
+    @app.route('/push/<string:name>/<float:price>/<string:desc>')
+    def push_into_db(name=None, price=None, desc=None):
+        command = f'INSERT INTO product (name, price, description) VALUES ("{name}", "{price}", "{desc}")'
         db.push_into_db(command)
         return "OK"
 
@@ -46,7 +49,6 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html')
 
-    from . import db
     db.init_app(app)
 
     return app
