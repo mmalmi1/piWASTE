@@ -3,6 +3,21 @@
 
 521479S Software project course project repository
 
+## Run the server
+Make sure you have `FLASK_APP` defined:
+```bash
+export FLASK_APP=app
+```
+Before running you need to initialize the database
+
+```bash
+flask init-db
+```
+And then run the server
+```bash
+flask run
+```
+
 ## Requirements
 
 ```bash
