@@ -29,6 +29,19 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
+    @app.route('/get_all_product_ids')
+    def get_from_db():
+        from . import db
+        command = f"SELECT id FROM product"
+        return "OK"
+
+    @app.route('/push/<int:id>/<float:price>/<string:desc>')
+    def push_into_db(id=None, price=None, desc=None):
+        from . import db
+        command = f"INSERT INTO product (price, description) VALUES ({id}, {price}, {desc})"
+        db.push_into_db(command)
+        return "OK"
+
     @app.route('/')
     def index():
         return render_template('index.html')

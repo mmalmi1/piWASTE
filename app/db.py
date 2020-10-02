@@ -28,6 +28,20 @@ def init_db():
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
 
+def get_from_db(command):
+    print(f"Execute {command}")
+    db = get_db()
+    resp = db.execute(command)
+    for i in resp:
+        print(i)
+    
+
+def push_into_db(command):
+    print(f"Execute {command}")
+    db = get_db()
+    db.execute(command)
+    db.commit()
+
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
