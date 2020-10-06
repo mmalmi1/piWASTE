@@ -9,7 +9,8 @@ Make sure you have `FLASK_APP` defined:
 export FLASK_APP=app
 ```
 
-## Enable debugging mode
+Enable debugging mode
+
 Make sure you have `FLASK_APP` defined:
 ```bash
 export FLASK_ENV=development
