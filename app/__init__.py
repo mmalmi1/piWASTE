@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 
 def create_app(test_config=None):
@@ -48,6 +48,14 @@ def create_app(test_config=None):
     @app.route('/')
     def index():
         return render_template('index.html')
+        
+    @app.route('/products')
+    def products():
+        return render_template('products.html')
+        
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
 
     db.init_app(app)
 
