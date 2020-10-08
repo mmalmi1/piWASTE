@@ -24,6 +24,26 @@ And then run the server
 flask run
 ```
 
+## Run the docker container
+
+You can use docker-compose to run the server in a container which mounts the current working directory. So it's possible to edit the code while the container is running.
+
+```bash
+docker-compose up
+```
+
+To tear it down, you can just run:
+```bash
+docker-compose down
+```
+
+If you want to try building a clean container, you can build the image and run it:
+```bash
+docker build . -t piwaste
+docker run --network=host piwaste # network=host is needed to be able to access it from the outside
+```
+TODO: The docker currently container doesn't include a `.sqlite` database file, so things most likely won't work without using `docker-compose`.
+
 ## Requirements
 
 ```bash
