@@ -33,7 +33,6 @@ def get_from_db(command):
     db = get_db()
     return db.execute(command)
 
-
 def push_into_db(command):
     print(f"Execute {command}")
     db = get_db()
