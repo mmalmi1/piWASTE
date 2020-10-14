@@ -28,16 +28,23 @@ def init_db():
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
 
+    push_into_db(f'INSERT INTO users (username, password, access_level) VALUES ("admin", "admin", "1")')
+
 def get_from_db(command):
     print(f"Execute {command}")
     db = get_db()
     return db.execute(command)
 
 def push_into_db(command):
-    print(f"Execute {command}")
-    db = get_db()
-    db.execute(command)
-    db.commit()
+    try: 
+        print(f"Execute {command}")
+        db = get_db()
+        db.execute(command)
+        db.commit()
+    except sqlite3.IntegrityError:
+        print("push_into_db failed, entry not unique")
+        return False
+    return True
 
 def init_app(app):
     app.teardown_appcontext(close_db)
