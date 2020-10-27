@@ -35,9 +35,13 @@ def init_db():
     Initializes the database from schema.sql
     """
     db = get_db()
+    db.row_factory = make_dicts
 
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
+        
+def make_dicts(cursor, row):
+    return dict((cursor.description[idx][0], value) for idx, value in enumerate(row))
 
     push_into_db(f'INSERT INTO users (username, password, access_level) VALUES ("admin", "admin", "1")')
 
