@@ -1,6 +1,6 @@
 import os
-
-from flask import Flask, render_template, url_for
+import sqlite3
+from flask import Flask, render_template, url_for, request
 
 
 def create_app(test_config=None):
@@ -35,25 +35,21 @@ def create_app(test_config=None):
             print(tuple(i))
         return "OK"
 
-    # create entry to products table
-    @app.route('/push_products/<string:name>/<float:price>/<string:desc>')
-    def push_product(name=None, price=None, desc=None):
-        command = f'INSERT INTO products (name, price, description) VALUES ("{name}", "{price}", "{desc}")'
-        db.push_into_db(command)
-        return "OK"
+    # query database, example query below
+    # http://127.0.0.1:5000/data?table=users&username=admin2&password=admin&access_level=1
+    @app.route('/data')
+    def query():
+        table = request.args.get('table')
+        if table == "products":
+            command = f'INSERT INTO products (name, price, description) VALUES ("{request.args.get("name")}", "{request.args.get("price")}", "{request.args.get("description")}")'
+        elif table == 'users':
+            command = f'INSERT INTO users (username, password, access_level) VALUES ("{request.args.get("username")}", "{request.args.get("password")}", "{request.args.get("access_level")}")'
+        elif table == 'reviews':
+            command = f'INSERT INTO reviews (text, user_id, product_id) VALUES ("{request.args.get("text")}", "{request.args.get("user_id")}", "{request.args.get("product_id")}")'
+        else:
+            return "query failed, table not found"
 
-    # create entry to users table
-    @app.route('/push_users/<string:username>/<string:password>/<int:access_level>')
-    def push_user(username=None, password=None, access_level=None):
-        command = f'INSERT INTO users (username, password, access_level) VALUES ("{username}", "{password}", "{access_level}")'
-        db.push_into_db(command)
-        return "OK"
-
-    # create entry to reviews table
-    @app.route('/push_reviews/<string:text>/<int:user_id>/<int:product_id>')
-    def push_review(text=None, user_id=None, product_id=None):
-        command = f'INSERT INTO reviews (text, user_id, product_id) VALUES ("{text}", "{user_id}", "{product_id}")'
-        db.push_into_db(command)
+        success = db.push_into_db(command)
         return "OK"
 
     @app.route('/')
