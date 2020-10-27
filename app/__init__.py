@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, jsonify
 
 
 def create_app(test_config=None):
@@ -50,15 +50,7 @@ def create_app(test_config=None):
             return "query failed, table not found"
 
         success = db.push_into_db(command)
-
-    @app.route('/get_all_product_ids')
-    def get_from_db():
-        command = f"SELECT id FROM products"
-        ids = db.get_from_db(command)
-        resp = ''
-        for i in ids:
-            resp += str(i['id']) + ":"
-        return resp
+        return "OK"
     
     @app.route('/all_products')
     def get_all_products_from_db():
@@ -68,12 +60,6 @@ def create_app(test_config=None):
         for result in products:
             payload.append({'id': result[0], 'name': result[1], 'price': result[2], 'description': result[3], 'image': result[4], 'stock': result[5]})
         return jsonify(payload)
-
-    @app.route('/push/<string:name>/<float:price>/<string:desc>')
-    def push_into_db(name=None, price=None, desc=None):
-        command = f'INSERT INTO product (name, price, description) VALUES ("{name}", "{price}", "{desc}")'
-        db.push_into_db(command)
-        return "OK"
 
     @app.route('/')
     def index():
