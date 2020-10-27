@@ -1,3 +1,21 @@
-body {
-  pass
+/* unvisited link */
+a:link {
+    color: grey;
+    font-size: 44;
+}
+
+/* mouse over link */
+a:hover {
+    
+}
+
+/* Rectangle placeholder for products */
+.product-placeholder-img {
+    background-color: #D9D9DD;
+    width: 200px;
+    height: 200px;
+}
+
+.col-md-4 {
+    margin-bottom: 40px;
 }
