@@ -53,7 +53,7 @@ def create_app(test_config=None):
 
     @app.route('/get_all_product_ids')
     def get_from_db():
-        command = f"SELECT id FROM product"
+        command = f"SELECT id FROM products"
         ids = db.get_from_db(command)
         resp = ''
         for i in ids:
@@ -62,14 +62,11 @@ def create_app(test_config=None):
     
     @app.route('/all_products')
     def get_all_products_from_db():
-        command = f"SELECT * FROM product"
+        command = f"SELECT * FROM products"
         products = db.get_from_db(command)
         payload = []
-        content = {}
         for result in products:
-            content = {'id': result[0], 'name': result[1], 'price': result[2], 'description': result[3], 'image': result[4], 'stock': result[5]}
-            payload.append(content)
-            content = {}
+            payload.append({'id': result[0], 'name': result[1], 'price': result[2], 'description': result[3], 'image': result[4], 'stock': result[5]})
         return jsonify(payload)
 
     @app.route('/push/<string:name>/<float:price>/<string:desc>')
