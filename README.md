@@ -6,12 +6,18 @@
 ## Run the server
 Make sure you have `FLASK_APP` defined:
 ```bash
+Linux:
 export FLASK_APP=app
+Windows:
+set FLASK_APP=app
 ```
 
 Enable debugging mode
 ```bash
+Linux:
 export FLASK_ENV=development
+Windows:
+set FLASK_ENV=development
 ```
 
 Before running you need to initialize the database
