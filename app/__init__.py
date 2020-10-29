@@ -1,6 +1,8 @@
 import os
 import sqlite3
-from flask import Flask, render_template, url_for, request, redirect, session, Response, make_response
+
+from flask import Flask, render_template, url_for, request, redirect, session, jsonify, Response, make_response
+
 
 
 def create_app(test_config=None):
@@ -51,6 +53,15 @@ def create_app(test_config=None):
 
         success = db.push_into_db(command)
         return "OK"
+    
+    @app.route('/all_products')
+    def get_all_products_from_db():
+        command = f"SELECT * FROM products"
+        products = db.get_from_db(command)
+        payload = []
+        for result in products:
+            payload.append({'id': result[0], 'name': result[1], 'price': result[2], 'description': result[3], 'image': result[4], 'stock': result[5]})
+        return jsonify(payload)
 
     @app.route('/')
     def index():

@@ -26,3 +26,5 @@ CREATE TABLE reviews (
   FOREIGN KEY (user_id) REFERENCES users (user_id),
   FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
+INSERT INTO products VALUES (1, 'Tire', 10.15, 'This is a car tire.', '', 25);
+INSERT INTO products VALUES (2, 'Bottle', 1.00, 'This is a bottle.', '', 10);
