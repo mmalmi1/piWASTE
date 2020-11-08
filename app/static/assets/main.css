@@ -16,6 +16,12 @@ a:hover {
     height: 200px;
 }
 
+.product-icon-img {
+    background-color: #D9D9DD;
+    width: 100px;
+    height: 100px;
+}
+
 .col-md-4 {
     margin-bottom: 40px;
 }

@@ -9,18 +9,28 @@
 
 {% block body %}
 
-<div class="jumbotron">
-  <h1 class="display-4">Autonrengas</h1>
+<section class="jumbotron text-center mx-auto" style="width: 80%">
+    <h1 class="jumbotron-heading">Tuotteen nimi</h1>
+    <div class="container">
+        <section class="jumbotron text-center" style="width: 50% margin-top: 20%">
+          <img src="{{url_for('static', filename='assets/broken_phone1.png')}}" class="card-img-top" alt="Image" width="150" height="150" >
+        </section>
+        <h1 class="jumbotron-heading">Welcome to piWASTE!</h1>
+        <p class="lead text-muted">This here could be some description about the website. Galapagosinpingviini (Spheniscus mendiculus) on Galápagossaarilla endeemisenä elävä pingviinilaji. Se on maailman pohjoisin pingviinilaji ja ainoa, joka joskus liikkuu pohjoiselle pallonpuoliskolle asti.</p>
+    </div>
+</section>
 
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <div class="card-header">
-
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">dddd</li>
+<div class="card" style="width: 100%;">
+    <img src="{{url_for('static', filename='assets/broken_phone1.png')}}" class="card-img-top" alt="Image" width="150" height="150" >
+    <div class="position-fixed">
+        <img src="{{url_for('static', filename='assets/broken_phone1.png')}}" class="card-img-top" alt="Image" width="150" height="150" >
     </div>
 
+  <div class="card-body">
+    <h5 class="card-title">Broken phone</h5>
+    <p class="card-text">Perfectly fine phone. Nothing to fixed, might also contain some secrets from previous user.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
 
 {% endblock %}
