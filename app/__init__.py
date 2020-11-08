@@ -37,9 +37,11 @@ def create_app(test_config=None):
     from app.views import login
     from app.views import database
     from app.views import crim_demo
+    from app.views import product
     app.register_blueprint(login.mod)
     app.register_blueprint(database.mod)
     app.register_blueprint(crim_demo.mod)
+    app.register_blueprint(product.mod)
 
     db.init_app(app)
 

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+   <!-- Custom styles for this template -->
+      
+{% endblock %}
+
+
+{% block body %}
+
+<section class="jumbotron text-center mx-auto" style="width: 80%">
+    <div class="row">
+      <div class="col mx-auto">
+        <h1 style="background-color: #BBEEFF" class="jumbotron-heading">Tuotteen nimi</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{url_for('static', filename='assets/broken_phone1.png')}}" class="card-img-top" style="background-color: #BBBBFF" alt="Image" height="md-4"/>Product</img>
+      </div>
+      <div class="col-md-8">
+        <h1 style="background-color: #BBBBFF"/>ddd</h1>
+      </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

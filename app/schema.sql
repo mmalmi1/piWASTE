@@ -28,3 +28,5 @@ CREATE TABLE reviews (
 );
 INSERT INTO products VALUES (1, 'Tire', 10.15, 'This is a car tire.', '', 25);
 INSERT INTO products VALUES (2, 'Bottle', 1.00, 'This is a bottle.', '', 10);
+
+INSERT INTO users VALUES (1, 'admin', 'admin', 2)
