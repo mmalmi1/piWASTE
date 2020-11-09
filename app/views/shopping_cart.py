@@ -11,12 +11,12 @@ def shopping_cart():
           Add remove product from cart
     """
     
-    productIds = request.cookies.get('shopping_cart') #list of product ids, get product ids from cookie
+    productIds = eval(request.cookies.get('shopping_cart')) #list of product ids, get product ids from cookie
 
     command = f'SELECT * FROM products WHERE product_id = {productIds}'
     shopping_cart = db.get_from_db(command)
 
     print("shopping cart:", shopping_cart)
 
-    resp = make_response(render_template('shopping_cart.html'))
+    resp = make_response(shopping_cart)
     return resp
