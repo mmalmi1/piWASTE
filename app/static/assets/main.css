@@ -22,6 +22,11 @@ a:hover {
     height: 100px;
 }
 
+.card-title, .card-description, .card-price {
+    text-align: left;
+    padding-left: 5%;
+}
+
 .col-md-4 {
 .card-body {
     text-align: left;
