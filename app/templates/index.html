@@ -19,46 +19,9 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
+    <h1 style="margin-bottom: 50px;">Featured products:</h1>
         <div class="row">
             <div class="card-deck md-4 text-center">
-                <div class="col-md-4 card-group">
-                    <div class="card md-4 box-shadow">
-                        <a class="product-link" href="">
-                            <div class="card-header">
-                                <h4 class="my-0 font-weight-normal">Test</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></div>                    
-                                <h1 class="card-title pricing-card-title">1.99€</h1>
-                        </a>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>10 users included</li>
-                                    <li>2 GB of storage</li>
-                                    <li>Email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                            </div>                
-                    </div>
-                </div>
-                <div class="col-md-4 card-group">
-                    <div class="card md-4 box-shadow">
-                        <a class="product-link" href="">
-                            <div class="card-header">
-                                <h4 class="my-0 font-weight-normal">Test</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></div>                    
-                                <h1 class="card-title pricing-card-title">1.99€</h1>
-                        </a>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>10 users included</li>
-                                    <li>2 GB of storage</li>
-                                    <li>Email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                            </div>                
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -70,24 +33,20 @@
 {% block script %}
 <script>
     var raw = $(`
-    <div class="col-md-4 card-group">
-        <div class="card md-4 box-shadow">
+    <div class="col-lg-4 col-md-6 card-group">
+        <div class="card md-4 box-shadow" style="width: 22rem;">
             <a class="product-link" href="">
-                <div class="card-header">
-                    <h4 class="card-title my-0 font-weight-normal">Free</h4>
-                </div>
                 <div class="card-body">
-                    <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></div>                    
-                    <h1 class="card-price pricing-card-title">1.99€</h1>
+                    <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></div>                                       
             </a>
-                    <p class="card-description">
-                        Empty
-                    </p>
+                    <h2 class="card-title pricing-card-title">Name</h2>
+                    <h3 class="card-price pricing-card-title">1.99€</h3>
+                    <p class="card-description">Empty</p>
                 </div>                
         </div>
     </div>`);
     
-    fetch("../all_products").then(function(response){
+    fetch("../get_all_entrys/products").then(function(response){
         return response.json();
     }).then(function(json) {
         for(var i=0; i<json.length; i++) {
@@ -101,8 +60,8 @@
             card.appendTo($(".card-deck"));
             
             if( (i%3) == 0) {
-                // Append card-group for same content length, find by class row
-                //body.appendTo($(".people_body"));
+                // If first in a row append card-group (for same content length)
+                $(".col-md-4").last().addClass("card-group");
             }
             
             // Insert values from DB
