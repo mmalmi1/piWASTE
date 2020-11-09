@@ -33,6 +33,10 @@ def create_app(test_config=None):
     def products():
         return render_template('products.html')
 
+    @app.route('/profile')
+    def profile():
+        return render_template('profile.html')
+
     # Add blueprints here
     from app.views import login
     from app.views import database

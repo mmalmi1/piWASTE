@@ -12,7 +12,7 @@ a:hover {
 /* Rectangle placeholder for products */
 .product-placeholder-img {
     background-color: #D9D9DD;
-    width: 200px;
+    width: 250px;
     height: 200px;
 }
 
@@ -32,6 +32,17 @@ a:hover {
     background-color: #3b3b3bff;
 }
 
+.card-title, .card-description, .card-price {
+    text-align: left;
+    padding-left: 5%;
+}
+
 .col-md-4 {
+.card-body {
+    text-align: left;
+    padding: 30px;
+}
+
+.col-lg-4 {
     margin-bottom: 40px;
 }

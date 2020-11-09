@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, request, redirect, Response, make_response
+from flask import Blueprint, render_template, url_for, request, redirect, Response, make_response, jsonify
 
 mod = Blueprint('database', __name__)
 
@@ -12,6 +12,11 @@ def get_from_db(database=None):
     """
     command = f"SELECT * FROM {database}"
     entrys = db.get_from_db(command)
+    payload = []
+    if database == "products":
+        for i in entrys:
+            payload.append({'id': i[0], 'name': i[1], 'price': i[2], 'description': i[3], 'image': i[4], 'stock': i[5]})
+        return jsonify(payload)
     for i in entrys:
         print(tuple(i))
     return "OK"
