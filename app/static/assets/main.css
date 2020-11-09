@@ -16,10 +16,20 @@ a:hover {
     height: 200px;
 }
 
-.product-icon-img {
+.product-bg-img {
     background-color: #D9D9DD;
-    width: 100px;
-    height: 100px;
+    width: 400px;
+    height: 400px;
+}
+
+.product-price-tag {
+    background-color: #2a2a2aff;
+    width: 100%;
+    height: 100%;
+}
+
+.general-box-background {
+    background-color: #3b3b3bff;
 }
 
 .col-md-4 {

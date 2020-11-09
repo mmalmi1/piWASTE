@@ -9,18 +9,74 @@
 
 {% block body %}
 
-<section class="jumbotron text-center mx-auto" style="width: 80%">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Products</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Product</li>
+    <li class="breadcrumb-item active" aria-current="page">id</li>
+  </ol>
+</nav>
+
+<section class="jumbotron text-center mx-auto general-box-background" style="width: 80%">
     <div class="row">
       <div class="col mx-auto">
-        <h1 style="background-color: #BBEEFF" class="jumbotron-heading">Tuotteen nimi</h1>
+        <h1 style="background-color: #2a2a2aff" class="jumbotron-heading">Tuotteen nimi</h1>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <img src="{{url_for('static', filename='assets/broken_phone1.png')}}" class="card-img-top" style="background-color: #BBBBFF" alt="Image" height="md-4"/>Product</img>
+        <div class="col-md-6 mx-auto product-price-tag">    
+          <img src="{{url_for('static', filename='assets/broken_phone1.png')}}" class="card-img-top mx-auto" style="background-color: #2a2a2aff" alt="Image" height="md-3"/>Product</img>
       </div>
-      <div class="col-md-8">
-        <h1 style="background-color: #BBBBFF"/>ddd</h1>
+      <div class="col-md-6">
+        <div class="card">
+          <ul class="card-body product-price-tag">
+            <li class="list-group-item">
+              <ul class="list-group">
+                <li class="list-group-item active" style="background-color: #2a2a2aff">
+                  Price
+                  <span class="badge badge-primary badge-pill" style="background-color: #2a2a2aff">12.45</span>
+                </li>
+          </ul>
+      </div>
+        <div class="card">
+          <ul class="card-body product-price-tag">
+            <li class="list-group-item">
+              <ul class="list-group">
+                <li class="list-group-item active" style="background-color: #2a2a2aff">Stock</li>
+                <li class="list-group-item d-flex justify-content-between align-tems-center">
+                  Oulu
+                  <span class="badge badge-primary badge-pill" style="background-color: #2a2a2aff">5</span>
+                <li class="list-group-item d-flex justify-content-between align-tems-center">
+                  Helsinki
+                  <span class="badge badge-primary badge-pill" style="background-color: #2a2a2aff">2</span>
+              </li>
+          </ul>
+      </div>
+        <div class="card">
+          <ul class="card-body product-price-tag">
+            <li class="list-group-item">
+              <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">Add to Basket</button>
+            </li>
+          </ul>
+      </div>
+      <div class="card">
+        <ul class="card-body product-price-tag">
+          <li class="list-group-item active" style="background-color: #2a2a2aff">Rating</li>
+          <li class="list-group-item">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2 mx-auto" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">1</button>
+                <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">2</button>
+                <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">3</button>
+                <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">4</button>
+                <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">5</button> 
+              </div>
+                <textarea class="form-control" aria-label="With textarea" maxlength="200"></textarea>
+                <button type="button" class="btn btn-secondary mx-auto" style="background-color: #2a2a2aff">Submit review</button>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 </section>
