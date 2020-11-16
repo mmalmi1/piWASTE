@@ -20,15 +20,11 @@ def product(productId=None):
     command = f'SELECT * FROM products WHERE product_id = {productId}'
     prod = db.get_from_db(command)
     prod = prod.fetchall()[0]
-    print(prod["product_id"])
-    print(prod["name"])
-    print(prod["price"])
-    print(prod["description"])
-    print(prod["image"])
-    print(prod["stock"])
+    img = """ "{{url_for('static', filename='""" + prod["image"] + """')}}" """
+    print(img)
     resp = make_response(render_template('product.html', product_id=prod["product_id"], name=prod["name"],
                                         price=prod["price"], description=prod["description"],
-                                        image=prod["image"], stock=prod["stock"]))
+                                        image=img, stock=prod["stock"]))
     return resp
 
 @mod.route('/product/<int:productId>/addToCart')
