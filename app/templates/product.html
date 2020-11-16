@@ -57,7 +57,7 @@
                             <div class="input-group-prepend">
                               <button class="btn btn-outline-dark" type="button" onclick="removeCount()"><</button>
                               <input type="text" class="form-control col-sm-7 mx-auto" style="text-align:center"
-                                id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value= {{ "1" }}>
+                                id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1>
                               <button class="btn btn-outline-dark" type="button" onclick="addCount()">></button>
                             </div>
                           </div>
@@ -100,8 +100,8 @@
                   </div>
                   <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="col-sm-4 mx-auto">
+                      <div class="btn-toolbar mb-0" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group mr-2" role="group" aria-label="First group">
                           <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">1</button>
                           <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">2</button>
@@ -120,19 +120,18 @@
 
 <script>
   function addCount() {
-      print("DD");
       var element = document.getElementById("countNumber");
-      element.value = element.value + 1;
-      } 
+      if(element.value < {{ stock }} ) {
+        element.value = parseInt(element.value)+ 1;
+      }
   }
 </script>
 
 <script>
   function removeCount() {
       var element = document.getElementById("countNumber");
-      if(element.value > 0) {
-        element.value = element.value - 1;
-      }
+      if(element.value > 1) {
+        element.value = parseInt(element.value) - 1;
       } 
   }
 </script>
