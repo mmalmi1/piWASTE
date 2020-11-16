@@ -43,8 +43,6 @@ def init_db():
 def make_dicts(cursor, row):
     return dict((cursor.description[idx][0], value) for idx, value in enumerate(row))
 
-    push_into_db(f'INSERT INTO users (username, password, access_level) VALUES ("admin", "admin", "1")')
-
 def get_from_db(command):
     """
     Execute given SQL query, and return the result.

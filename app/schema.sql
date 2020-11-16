@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS purchase_history;
 
 CREATE TABLE products (
   product_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,6 +27,14 @@ CREATE TABLE reviews (
   FOREIGN KEY (user_id) REFERENCES users (user_id),
   FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
+
+CREATE TABLE purchase_history (
+  user_id INTEGER PRIMARY KEY,
+  shopping_cart TEXT NOT NULL,
+  timestamp TEXT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+
 
 INSERT INTO products VALUES (1, 'Tire', 10.15, 'This is a car tire.', '', 25);
 INSERT INTO products VALUES (2, 'Bottle', 1.00, 'This is a bottle.', '', 10);
