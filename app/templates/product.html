@@ -52,13 +52,15 @@
                         <div class="col-sm-4">
                           <button type="button" class="btn btn-outline-dark">Add to Basket</button>
                         </div>
-                        <div class="col-sm-2 text-secondary">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-6 text-secondary">
                           <div class="input-group mb-4">
                             <div class="input-group-prepend">
-                              <button class="btn btn-outline-dark" type="button" onclick="removeCount()"><</button>
-                              <input type="text" class="form-control col-sm-7 mx-auto" style="text-align:center"
+                              <button class="btn btn-outline-dark col-sm-2" type="button" onclick="removeCount()"><</button>
+                              <input type="text" class="form-control col-sm-2" style="text-align:center"
                                 id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1>
-                              <button class="btn btn-outline-dark" type="button" onclick="addCount()">></button>
+                              <button class="btn btn-outline-dark col-sm-2" type="button" onclick="addCount()">></button>
                             </div>
                           </div>
                         </div>
@@ -107,7 +109,7 @@
                   </div>
                   <hr>
                   <div class="row">
-                    <div class="col-sm-4 mx-auto">
+                    <div class="col mx-auto">
                       <div class="btn-toolbar mb-0" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group mr-2" role="group" aria-label="First group">
                           <button type="button" class="btn btn-outline-dark">1</button>
@@ -121,10 +123,12 @@
                    </div>
                    <hr>
                    <div class="row">
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="">
-                    </div>
-                   </div>           
+                      <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
+                   </div>
+                   <hr>
+                   <div class="row">
+                    <button type="button" class="btn btn-outline-dark mx-auto">Submit</button>
+                   </div>
                </div>
             </div>
         </div>
