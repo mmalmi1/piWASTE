@@ -10,13 +10,16 @@ def shopping_cart():
     TODO: Create HTML for shopping cart
           Add remove product from cart
     """
-    
-    productIds = eval(request.cookies.get('shopping_cart')) #list of product ids, get product ids from cookie
-
-    command = f'SELECT * FROM products WHERE product_id = {productIds}'
-    shopping_cart = db.get_from_db(command)
-
+    product_ids = eval(request.cookies.get('shopping_cart', '{}')) #list of product ids, get product ids from cookie
+    shopping_cart = dict()
+    for pid, amount in product_ids.items():
+        command = f'SELECT * FROM products WHERE product_id = {pid}'
+        data = db.get_from_db(command).fetchone()
+        shopping_cart[pid] = {
+            'name': data['name'],
+            'price': data['price'],
+            'description': data['description'],
+            'amount': amount
+        }
     print("shopping cart:", shopping_cart)
-
-    resp = make_response(shopping_cart)
-    return resp
+    return make_response(shopping_cart)
