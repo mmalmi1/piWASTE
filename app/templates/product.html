@@ -56,7 +56,7 @@
         <div class="card">
           <ul class="card-body product-price-tag">
             <li class="list-group-item">
-              <button type="button" class="btn btn-secondary" style="background-color: #2a2a2aff">Add to Basket</button>
+              <button type="button" class="btn btn-secondary" onclick="addToCart(1)" style="background-color: #2a2a2aff">Add to Basket</button>
             </li>
           </ul>
       </div>
@@ -81,6 +81,48 @@
     </div>
 </section>
 
+<script>
+  function setCookie(name,value,days) {
+      var expires = "";
+      if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  }
+  function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+  }
+  function addToCart(product_id) {
+    var cart = JSON.parse(getCookie('shopping_cart'));
+    if (cart == null) {
+      cart = {};
+    }
+    if (!('1' in cart)) {
+      cart['1'] = 0;
+    }
+    cart['1'] = cart['1'] + 1;
+    setCookie('shopping_cart', JSON.stringify(cart), 100);
+  }
+  function removeFromCart(product_id) {
+    var cart = JSON.parse(getCookie('shopping_cart'));
+    if (cart == null) {
+      cart = {};
+    }
+    if ('1' in cart && cart['1'] > 0) {
+      cart['1'] = cart['1'] - 1;
+    }
+    setCookie('shopping_cart', JSON.stringify(cart), 100);
+  }
+</script>
 
 {% endblock %}
 
