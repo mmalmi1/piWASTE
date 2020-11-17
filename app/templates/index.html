@@ -51,7 +51,6 @@
     }).then(function(json) {
         for(var i=0; i<json.length; i++) {
             let { name, price, description, image, stock } = json[i];
-            console.log(json[i]);
             
             // Create clone so old one donesn't get erased!
             card = raw.clone();

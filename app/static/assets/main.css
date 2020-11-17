@@ -37,6 +37,32 @@ a:hover {
     padding-left: 5%;
 }
 
+.product-icon-img {
+    background-color: #D9D9DD;
+    width: 100px;
+    height: 100px;
+}
+
+.card-title, .card-description, .card-price {
+    text-align: left;
+    padding-left: 5%;
+}
+
+.logout-btn {
+    color: #D51D00;
+    border-color: #D51D00;
+}
+
+.login-btn {
+    color: #30C636;
+    border-color: #30C636;
+}
+
+.login-page-btn {
+    color: #000000;
+    border-color: #000000;
+}
+
 .col-md-4 {
 .card-body {
     text-align: left;

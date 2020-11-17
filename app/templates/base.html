@@ -59,6 +59,31 @@
     </header>
   
     {% block body %}{% endblock %}
+    
+    <!-- Toggle login/logoff -->
+    <script>
+        
+        // Cookie to dictionary
+        split = document.cookie.split("; ");
+        var cookie = {}
+        for(var key in split) {
+            attribute = split[key].split("=");
+            cookie[attribute[0]] = attribute[1];                   
+        }
+        console.log(cookie);
+
+        if (cookie['logged_in'] != 'True') {
+            // Toggle button to Login
+            $(".form-inline").attr("href", "{{ url_for('login.login') }}");
+            $(".btn").text("Login").addClass("login-btn").removeClass("logout-btn");
+        }
+        else {
+            // Toggle button to Logout
+            $(".form-inline").attr("href", "{{ url_for('login.logout') }}");
+            $(".btn").text("Logout").addClass("logout-btn").removeClass("login-btn");
+        }
+
+    </script>
         
     <!-- Collapsing menu for smaller screens -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
