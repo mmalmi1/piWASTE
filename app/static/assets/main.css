@@ -6,7 +6,7 @@ a:link {
 
 /* mouse over link */
 a:hover {
-    
+    text-decoration: none;
 }
 
 /* Rectangle placeholder for products */
@@ -48,9 +48,13 @@ a:hover {
     padding-left: 5%;
 }
 
-.logout-btn {
+.logout-btn, .logout-btn:hover {
     color: #D51D00;
-    border-color: #D51D00;
+    border-color: #D51D00; 
+}
+
+.logout-btn:hover {
+    background-color: #2F394C; 
 }
 
 .login-btn {
