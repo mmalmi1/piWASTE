@@ -3,7 +3,7 @@ from app import db
 
 mod = Blueprint('product', __name__)
 
-@mod.route('/product/<int:productId>')
+@mod.route('/product/<int:productId>', methods=['GET'])
 def product(productId=None):
     '''
     Product view.

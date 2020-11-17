@@ -6,7 +6,7 @@ a:link {
 
 /* mouse over link */
 a:hover {
-    
+    text-decoration: none;
 }
 
 /* Rectangle placeholder for products */
@@ -35,6 +35,31 @@ a:hover {
 .card-title, .card-description, .card-price {
     text-align: left;
     padding-left: 5%;
+}
+
+.product-icon-img {
+    background-color: #D9D9DD;
+    width: 100px;
+    height: 100px;
+}
+
+.card-title, .card-description, .card-price {
+    text-align: left;
+    padding-left: 5%;
+}
+
+.logout-btn, .logout-btn:hover {
+    color: #D51D00;
+    border-color: #D51D00; 
+}
+
+.logout-btn:hover {
+    background-color: #2F394C; 
+}
+
+.login-btn {
+    color: #30C636;
+    border-color: #30C636;
 }
 
 .col-md-4 {

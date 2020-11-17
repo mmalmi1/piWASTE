@@ -51,14 +51,39 @@
                         <a class="nav-link disabled" href="#">Placeholder</a>
                     </li>
                 </ul>
-                <a class="form-inline mt-2 mt-md-0" href="{{ url_for('login.login') }}">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                <a class="form-inline mt-2 mt-md-0" id="logInButtonLink" href="">
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="logInButton" type="submit"></button>
                 </a>
             </div>
         </nav>
     </header>
   
     {% block body %}{% endblock %}
+    
+    <!-- Toggle login/logoff -->
+    <script>
+        
+        // Cookie to dictionary
+        split = document.cookie.split("; ");
+        var cookie = {}
+        for(var key in split) {
+            attribute = split[key].split("=");
+            cookie[attribute[0]] = attribute[1];                   
+        }
+        console.log(cookie);
+
+        if (cookie['logged_in'] != 'True') {
+            // Toggle button to Login
+            $("#logInButtonLink").attr("href", "{{ url_for('login.login') }}");
+            $("#logInButton").addClass("login-btn").removeClass("logout-btn").text("Login");
+        }
+        else {
+            // Toggle button to Logout
+            $("#logInButtonLink").attr("href", "{{ url_for('login.logout') }}");
+            $("#logInButton").addClass("logout-btn").removeClass("login-btn").text("Logout");
+        }
+
+    </script>
         
     <!-- Collapsing menu for smaller screens -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"

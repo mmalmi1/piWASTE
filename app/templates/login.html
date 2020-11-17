@@ -10,11 +10,6 @@
 {% block body %}
 
 <html>
-    <head>
-        <title>Flask Intro - login page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-    </head>
     <body>
         <img class="mb-4" style="margin-top:20%" src="{{url_for('static', filename='assets/dumpster-fire-solid.svg')}}" alt="" width="72" height="72">
         <div class="container">
@@ -26,7 +21,7 @@
                 <input type="password" id="passwordInput" class="form-control" placeholder="Password" name="password" required value="{{
                 request.form.password }}">
                 <input type="checkbox" onclick="togglePasswordVisibility()">Show Password
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <button class="login-page-btn btn btn-lg btn-primary btn-block" type="submit">
                     Sign in
                 </button>
                 <p class="mt-5 mb-3 text-muted">
