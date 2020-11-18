@@ -8,7 +8,8 @@ CREATE TABLE products (
   price REAL NOT NULL,
   description TEXT NOT NULL,
   image TEXT,
-  stock INTEGER DEFAULT 0
+  stock INTEGER DEFAULT 0,
+  visible INTEGER DEFAULT 1
 );
 
 CREATE TABLE users (
