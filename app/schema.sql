@@ -16,7 +16,11 @@ CREATE TABLE users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL,
-  access_level INTEGER NOT NULL
+  access_level INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  address TEXT
 );
 
 CREATE TABLE reviews (
@@ -31,4 +35,7 @@ CREATE TABLE reviews (
 INSERT INTO products (name, price, description, image, stock) VALUES ('Teddy', 10.15, 'Little broken teddy trying to find new home. Might need some additional cleaning. Otherwise in perfect condition', 'assets/broken_teddy1.png', 10);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Guitar', 50.15, 'Guitar in perfect condition. Start your rockstar career today and buy this perfect guitar', 'assets/guitar.png', 1);
 
-INSERT INTO users VALUES (1, 'admin', 'admin', 2)
+INSERT INTO users (username, password, access_level, name, email) VALUES ('admin', 'admin', 2, 'admin', 'admin@admin.ad');
+INSERT INTO users (username, password, access_level, name, email, phone, address) VALUES
+                  ('jaksu', '1234', 1, 'Jakke Jäyhä', 'jakkej@mail.com', '322', 'Tie 1');
+
