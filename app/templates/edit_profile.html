@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+   <!-- Custom styles for this template -->
+      
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="main-body" style="padding-top: 10%;">
+        <div class="row gutters-sm">
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="row">
+                                <h6 class="mb-0">Name: {{ name }}</h6>
+                                <input type="text" class="form-control" placeholder="New Name" name="name" value="{{
+                                    request.form.name }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Address: {{ address }}</h6>
+                                <input type="text" class="form-control" placeholder="New Address" name="address" value="{{
+                                    request.form.address }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Phone {{ phone }}</h6>
+                                <input type="text" class="form-control" placeholder="New Phone" name="phone" value="{{
+                                    request.form.phone }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Password {{ password }}</h6>
+                                <input type="password" id="passwordInput" class="form-control" placeholder="New Password" name="password" value="{{
+                                    request.form.password }}">
+                                <input type="checkbox" onclick="togglePasswordVisibility()">Show Password
+                            </div>
+                            <button class="btn btn-primary edit-button" type="submit">Submit changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+<script>
+    function togglePasswordVisibility() {
+        var element = document.getElementById("passwordInput");
+        if (element.type === "password") {
+            element.type = "text";
+        } else {
+            element.type = "password";
+        }
+    }
+</script>
+{% endblock %}
