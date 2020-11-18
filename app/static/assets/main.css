@@ -50,7 +50,8 @@ a:hover {
 
 .logout-btn, .logout-btn:hover {
     color: #D51D00;
-    border-color: #D51D00; 
+    border-color: #D51D00;
+    margin-left: 30px; 
 }
 
 .logout-btn:hover {
@@ -60,6 +61,11 @@ a:hover {
 .login-btn {
     color: #30C636;
     border-color: #30C636;
+    margin-left: 30px; 
+}
+
+.invisible {
+    visibility: hidden;
 }
 
 .col-md-4 {

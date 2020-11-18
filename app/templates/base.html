@@ -51,6 +51,9 @@
                         <a class="nav-link disabled" href="#">Placeholder</a>
                     </li>
                 </ul>
+                <a class="form-inline mt-2 mt-md-0" href="{{ url_for('profile') }}">
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="profileButton" type="submit">Profile</button>
+                </a>
                 <a class="form-inline mt-2 mt-md-0" id="logInButtonLink" href="">
                     <button class="btn btn-outline-success my-2 my-sm-0" id="logInButton" type="submit"></button>
                 </a>
@@ -73,11 +76,17 @@
         console.log(cookie);
 
         if (cookie['logged_in'] != 'True') {
+            //Make Profile button invisible
+            $("#profileButton").addClass("invisible");
+
             // Toggle button to Login
             $("#logInButtonLink").attr("href", "{{ url_for('login.login') }}");
             $("#logInButton").addClass("login-btn").removeClass("logout-btn").text("Login");
         }
         else {
+            //Make Profile button visible
+            $("#profileButton").removeClass("invisible");
+
             // Toggle button to Logout
             $("#logInButtonLink").attr("href", "{{ url_for('login.logout') }}");
             $("#logInButton").addClass("logout-btn").removeClass("login-btn").text("Logout");
