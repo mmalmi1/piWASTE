@@ -8,9 +8,11 @@ from app import db
 def secret():
     """
     A simple example to check user is logged in
+    
+    NOTE: eval is evil
     """
     logged_in = request.cookies.get('logged_in')
-    if logged_in != 'True':
+    if not eval(logged_in):
         return Response("It's a secret", 401)
     return "Congratulations, you found the secret"
 

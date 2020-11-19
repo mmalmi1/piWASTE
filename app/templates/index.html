@@ -31,7 +31,7 @@
 
 
 {% block script %}
-<script>
+<script type=text/javascript>
     var raw = $(`
     <div class="col-lg-4 col-md-6 card-group">
         <div class="card md-4 box-shadow" style="width: 22rem;">
@@ -50,9 +50,7 @@
         return response.json();
     }).then(function(json) {
         for(var i=0; i<json.length; i++) {
-            let { name, price, description, image, stock } = json[i];
-            console.log(json[i]);
-            
+            let { id, name, price, description, image, stock } = json[i];
             // Create clone so old one donesn't get erased!
             card = raw.clone();
             
@@ -68,6 +66,10 @@
             $(".card-title").last().text(name);
             $(".card-price").last().text(price).append("€");
             $(".card-description").last().text(description);
+
+            var url = "product/".concat(id);
+            $(".product-link").last().attr("href", url);
+
             
         };       
 
