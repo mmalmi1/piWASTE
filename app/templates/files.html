@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+   
+   <!-- Custom styles for this template -->
+     
+{% endblock %}
+
+
+{% block body %}
+
+<html>
+    <body>
+      <img class="mb-4" style="margin-top:5%" src="{{url_for('static', filename='assets/journals.svg')}}" alt="" width="72" height="72">
+      <div class="container">
+        <h2>Company confidential files</h2>
+      <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
+                <p>{{ (request.path + '/' if request.path != '/' else '') + file }}</p>
+            </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    </body>
+</html>
+
+
+{% endblock %}
+

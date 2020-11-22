@@ -1,0 +1,148 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:15:53] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:15:54] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:15:58] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:16:02] "[37mGET /files/docs/only_for_administration/log_file.log HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:17:19] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:17:19] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:17:53] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:17:53] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:19:05] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:19:05] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:19:13] "[37mGET /files/docs/company_secret.md HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 19:19:24] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 22:55:22] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 22:55:31] "[37mGET /files/app HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 22:58:23] "[37mGET /files/app HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 22:58:23] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 22:58:29] "[37mGET /files/app HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:00:18] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:00:22] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:06:23] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:06:23] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:06:28] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:06:54] "[37mGET /files/docss HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:06:57] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:07:01] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:34:25] "[37mGET /data HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:37:51] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:37:51] "[37mGET /get_all_entrys/products HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:37:54] "[37mGET /product/2 HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:37:54] "[37mGET /static/assets/broken_teddy1.png HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:44:50] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:44:50] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:44:50] "[37mGET /get_all_entrys/products HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:44:50] "[37mGET /login HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:44:58] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:47:04] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [20/Nov/2020 23:48:56] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:04:47] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:04:47] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:04:57] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:05:13] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:05:13] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:05:13] "[37mGET /get_all_entrys/products HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:10:34] "[33mGET /get_all_entrys HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:10:39] "[33mGET /get_all_entrys/ HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:10:45] "[37mGET /get_all_entrys/users HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Nov/2020 00:11:14] "[37mGET /get_all_entrys/products HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:45:32] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:45:32] "[37mGET /static/assets/main.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:45:32] "[37mGET /get_all_entrys/products HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:04] "[37mGET /files/ HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:05] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:05] "[36mGET /static/assets/journals.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:09] "[37mGET /files/docs/Vulns.md HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:16] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:20] "[37mGET /files/docs/company_secret.md HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:46:24] "[37mGET /files/docs/Testing.md HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:48:27] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:48:30] "[36mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:50:58] "[35m[1mGET /files/docs HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:50:58] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:50:58] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:50:58] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:50:58] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:50:58] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:57:01] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:57:08] "[37mGET /files/ HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:57:26] "[37mGET /files/ HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:57:40] "[37mGET /files/docs/Testing.md HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:57:45] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:58:38] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 13:59:41] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:04:19] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:04:56] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:05:44] "[35m[1mGET /files/docs HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:05:44] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:05:44] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:05:44] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:05:44] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:05:44] "[37mGET /files/docs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:07:29] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/teukka/Documents/koulu_4/securityProject/PROJECT/piWASTE/app/views/files.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:07:57] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:08:05] "[37mGET /files/docs/only_for_administration HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:08:10] "[37mGET /files/docs/Vulns.md HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-620-792
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:11:52] "[37mGET /files/docs HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2020 14:11:52] "[37mGET /static/assets/dumpster-fire-solid.svg HTTP/1.1[0m" 200 -
