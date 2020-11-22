@@ -7,8 +7,15 @@ mod = Blueprint('shopping_cart', __name__)
 def shopping_cart():
     """ 
     Shopping cart view
-    TODO: Create HTML for shopping cart
-          Add remove product from cart
+    """
+
+    return render_template('cart.html')
+
+@mod.route('/get_shopping_cart', methods=['GET', 'POST'])
+def get_shopping_cart():
+    """ 
+    Get shopping cart
+    TODO: Add remove product from cart
     """
     product_ids = eval(request.cookies.get('shopping_cart', '{}')) #list of product ids, get product ids from cookie
     shopping_cart = dict()

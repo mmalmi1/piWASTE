@@ -64,6 +64,16 @@ a:hover {
     margin-left: 30px; 
 }
 
+.profile-btn {
+    margin-left: 30px; 
+}
+
+.shopcart-btn {
+    margin-left: 30px;
+    color: #30C636;
+    border-color: #30C636;
+}
+
 .invisible {
     visibility: hidden;
 }
