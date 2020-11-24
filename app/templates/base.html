@@ -51,7 +51,7 @@
                         <a class="nav-link disabled" href="#">Placeholder</a>
                     </li>
                 </ul>
-                <a class="form-inline mt-2 mt-md-0" href="{{ url_for('shopping_cart.shopping_cart') }}">
+                <a class="form-inline mt-2 cart-link mt-md-0" href="{{ url_for('shopping_cart.shopping_cart') }}">
                     <button class="btn shopcart-btn btn-outline-success my-2 my-sm-0" id="shopcartButton" type="submit">Cart</button>
                 </a>
                 <a class="form-inline mt-2 mt-md-0" href="{{ url_for('profile.profile') }}">
@@ -80,8 +80,8 @@
 
         if (cookie['logged_in'] != 'True') {
             //Make Profile and shopcart buttons invisible
-            $("#profileButton").addClass("invisible");
-            $("#shopcartButton").addClass("invisible");
+            $("#profileButton").prop('disabled', true);
+            $("#shopcartButton").prop('disabled', true);
 
             // Toggle button to Login
             $("#logInButtonLink").attr("href", "{{ url_for('login.login') }}");
