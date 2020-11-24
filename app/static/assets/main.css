@@ -16,6 +16,19 @@ a:hover {
     height: 200px;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.main-page-card {
+    margin-bottom: 30px;
+}
+
+.inner-card {
+    padding-left: 20px;
+}
+
 .product-bg-img {
     background-color: #D9D9DD;
     width: 400px;
@@ -82,8 +95,4 @@ a:hover {
 .card-body {
     text-align: left;
     padding: 30px;
-}
-
-.col-lg-4 {
-    margin-bottom: 40px;
 }
