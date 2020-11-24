@@ -29,7 +29,6 @@ CREATE TABLE reviews (
   text TEXT NOT NULL,
   user_id INTEGER NOT NULL,
   product_id INTEGER NOT NULL,
-  score INTEGER NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (user_id),
   FOREIGN KEY (product_id) REFERENCES products (product_id),
   UNIQUE(user_id, product_id)
