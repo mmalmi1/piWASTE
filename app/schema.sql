@@ -52,6 +52,3 @@ INSERT INTO users (username, password, access_level, name, email, phone, address
 
 INSERT INTO reviews (text, user_id, product_id) VALUES ('Test review', 1, 1);
 INSERT INTO reviews (text, user_id, product_id) VALUES ('Another test review', 2, 1);
-
-
-
