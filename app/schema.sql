@@ -29,6 +29,7 @@ CREATE TABLE reviews (
   text TEXT NOT NULL,
   user_id INTEGER NOT NULL,
   product_id INTEGER NOT NULL,
+  score INTEGER NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (user_id),
   FOREIGN KEY (product_id) REFERENCES products (product_id),
   UNIQUE(user_id, product_id)
@@ -49,9 +50,3 @@ INSERT INTO products (name, price, description, image, stock) VALUES ('Guitar', 
 INSERT INTO users (username, password, access_level, name, email) VALUES ('admin', 'admin', 2, 'admin', 'admin@admin.ad');
 INSERT INTO users (username, password, access_level, name, email, phone, address) VALUES
                   ('jaksu', '1234', 1, 'Jakke Jäyhä', 'jakkej@mail.com', '322', 'Tie 1');
-
-INSERT INTO reviews (text, user_id, product_id) VALUES ('Test review', 1, 1);
-INSERT INTO reviews (text, user_id, product_id) VALUES ('Another test review', 2, 1);
-
-
-

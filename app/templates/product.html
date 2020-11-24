@@ -121,33 +121,14 @@
                       </div>
                     </div>
                    </div>
-                   <hr>
                    <div class="row">
-                      <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
-                   </div>
-                   <hr>
-                   <div class="row">
-                    <button type="button" class="btn btn-outline-dark mx-auto">Submit</button>
+                    <form action="/product/{{ product_id }}/submit_review" method="post">
+                      <textarea placeholder="Enter your message here" name="message" cols="50" rows="4"></textarea>
+                      <input type="submit" value="Submit">
                    </div>
                </div>
             </div>
         </div>
-        <div class="col-md-6">
-          <div class="card mb-3">
-              <div class="card-body">
-                  <div class="row">
-                      <div class="col-sm-3 mx-auto">
-                          <h5 class="mb-0">Comments</h5>
-                      </div>
-                  </div>
-                   <hr>
-                   <div class="row">
-                      <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
-                   </div>
-               </div>
-            </div>
-        </div>
-
   </div>
 </div>
 
