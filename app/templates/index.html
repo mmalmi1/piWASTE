@@ -33,8 +33,8 @@
 {% block script %}
 <script type=text/javascript>
     var raw = $(`
-    <div class="col-lg-4 col-md-6 card-group">
-        <div class="card md-4 box-shadow" style="width: 22rem;">
+    <div class="main-page-card card-group">
+        <div class="card inner-card md-4 box-shadow" style="width: 22rem;">
             <a class="product-link" href="">
                 <div class="card-body">
                     <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></div>                                       
@@ -56,11 +56,6 @@
             
             // Append item to deck, find by class card-deck
             card.appendTo($(".card-deck"));
-            
-            if( (i%3) == 0) {
-                // If first in a row append card-group (for same content length)
-                $(".col-md-4").last().addClass("card-group");
-            }
             
             // Insert values from DB
             $(".card-title").last().text(name);
