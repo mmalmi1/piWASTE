@@ -31,7 +31,6 @@ def product(product_id=None):
 def submit_review(product_id=None):
     '''
     Post a review for a product
-    TODO: Check for logged in fails, lets through if not logged in which leads to user_id = None
     '''
     if request.cookies.get('logged_in') == "True":
         message = request.form['message']
