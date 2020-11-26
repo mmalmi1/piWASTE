@@ -36,13 +36,11 @@ def create_app(test_config=None):
     # Add blueprints here
     from app.views import login
     from app.views import database
-    from app.views import crim_demo
     from app.views import product
     from app.views import shopping_cart
     from app.views import profile
     app.register_blueprint(login.mod)
     app.register_blueprint(database.mod)
-    app.register_blueprint(crim_demo.mod)
     app.register_blueprint(product.mod)
     app.register_blueprint(shopping_cart.mod)
     app.register_blueprint(profile.mod)
