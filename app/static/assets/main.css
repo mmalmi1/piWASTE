@@ -67,31 +67,60 @@ html, body {
     margin-left: 30px; 
 }
 
-.logout-btn:hover {
-    background-color: #2F394C; 
+.logout-btn:hover,.logout-btn:active {
+    background-color: #2F394C;
+    border-color: #D51D00; 
+}
+
+.login-btn:hover {
+    background-color: #2F394C;
+    border-color: #BC75E8; 
 }
 
 .login-btn {
-    color: #30C636;
-    border-color: #30C636;
+    color: #BC75E8;
+    border-color: #BC75E8;
+    background-color: #2F394C;
+    margin-left: 30px; 
+}
+
+.login-btn:active {
+    color: #aa11bb;
+    border-color: #BC75E8;
+    background-color: #2F394C;
     margin-left: 30px; 
 }
 
 .profile-btn {
+    color: #BC75E8;
+    border-color: #BC75E8;
+    margin-left: 30px; 
+}
+.profile-btn:hover {
+    color: #BC75E8;
+    border-color: #BC75E8;
+    background-color: #2F394C;
     margin-left: 30px; 
 }
 
 .shopcart-btn {
     margin-left: 30px;
-    color: #30C636;
-    border-color: #30C636;
+    color: #BC75E8;
+    border-color: #BC75E8;
 }
 
-.invisible {
-    visibility: hidden;
+.shopcart-btn:hover {
+    color: #BC75E8;
+    border-color: #BC75E8;
+    background-color: #2F394C;
+    margin-left: 30px; 
 }
 
-.col-md-4 {
+/* Disable profile and shopping cart buttons */
+button:disabled{
+    display: none;
+}
+
 .card-body {
     text-align: left;
     padding: 30px;
