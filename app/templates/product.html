@@ -3,6 +3,9 @@
 {% block head %}
 
    <!-- Custom styles for this template -->
+
+   <!-- JS -->
+   <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
       
 {% endblock %}
 
@@ -50,7 +53,7 @@
                       <hr>
                       <div class="row">
                         <div class="col-sm-4">
-                          <button type="button" onclick=addToCart() class="btn btn-outline-dark">Add to Basket</button>
+                          <button type="button" onclick=addToCart({{ product_id }}) class="btn btn-outline-dark">Add to Basket</button>
                         </div>
                         <div class="col-sm-2">
                         </div>
@@ -60,7 +63,7 @@
                               <button class="btn btn-outline-dark col-sm-2" type="button" onclick="removeCount()"><</button>
                               <input type="text" class="form-control col-sm-2" style="text-align:center"
                                 id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1>
-                              <button class="btn btn-outline-dark col-sm-2" type="button" onclick="addCount()">></button>
+                              <button class="btn btn-outline-dark col-sm-2" type="button" onclick="addCount( {{ stock }} )">></button>
                             </div>
                           </div>
                         </div>
@@ -131,68 +134,6 @@
         </div>
   </div>
 </div>
-
-<script>
-  function addCount() {
-      var element = document.getElementById("countNumber");
-      if(element.value < {{ stock }} ) {
-        element.value = parseInt(element.value)+ 1;
-      }
-  }
-</script>
-
-<script>
-  function removeCount() {
-      var element = document.getElementById("countNumber");
-      if(element.value > 1) {
-        element.value = parseInt(element.value) - 1;
-      } 
-  }
-</script>
-
-<script>
-  function setCookie(name,value,days) {
-      var expires = "";
-      if (days) {
-          var date = new Date();
-          date.setTime(date.getTime() + (days*24*60*60*1000));
-          expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-  }
-  function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0;i < ca.length;i++) {
-          var c = ca[i];
-          while (c.charAt(0)==' ') c = c.substring(1,c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-      }
-      return null;
-  }
-  function addToCart() {
-    var cart = JSON.parse(getCookie('shopping_cart'));
-    if (cart == null) {
-      cart = {};
-    }
-    product_id = parseInt({{ product_id }});
-    if (!(product_id in cart)) {
-      cart[product_id] = 0;
-    }
-    cart[product_id] = cart[product_id] + parseInt(document.getElementById("countNumber").value);
-    setCookie('shopping_cart', JSON.stringify(cart), 100);
-  }
-  function removeFromCart(product_id) {
-    var cart = JSON.parse(getCookie('shopping_cart'));
-    if (cart == null) {
-      cart = {};
-    }
-    if (product_id in cart && cart[product_id] > 0) {
-      cart[product_id] = cart[product_id] - 1;
-    }
-    setCookie('shopping_cart', JSON.stringify(cart), 100);
-  }
-</script>
 
 {% endblock %}
 
