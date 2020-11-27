@@ -20,11 +20,9 @@ def product(product_id=None):
     command = f'SELECT * FROM products WHERE product_id = {product_id}'
     prod = db.get_from_db(command)
     prod = prod.fetchall()[0]
-    img = """ "{{url_for('static', filename='""" + prod["image"] + """')}}" """
-    print(img)
     resp = make_response(render_template('product.html', product_id=prod["product_id"], name=prod["name"],
                                         price=prod["price"], description=prod["description"],
-                                        image=img, stock=prod["stock"]))
+                                        image=prod["image"], stock=prod["stock"]))
     return resp
 
 @mod.route('/product/<int:product_id>/submit_review', methods=['POST'])
