@@ -58,6 +58,8 @@ INSERT INTO products (name, price, description, image, stock) VALUES ('Rocket', 
 INSERT INTO products (name, price, description, image, stock) VALUES ('Scuba Suita', 299.99, 'Wanna go explore under water areas? Then this is totally for you.', 'assets/scubasuitpng.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('60 kmh limit sign', 199.99, 'Not sure if these is legal to own, but perfect souvenir.', 'assets/sign_2.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Tire', 9.99, 'Interresting tire.', 'assets/tire.png', 1);
+INSERT INTO products (name, price, description, image, stock) VALUES ('Plant', 19.99, 'Looks like xmas tree!', 'assets/plant.png', 1);
+INSERT INTO products (name, price, description, image, stock) VALUES ('Pan', 49.99, 'Maby Teflon, maby now. Gets your stuff cooked anyways', 'assets/pan.png', 1);
 
 
 INSERT INTO users (username, password, access_level, name, email) VALUES ('admin', 'admin', 2, 'admin', 'admin@admin.ad');
