@@ -44,6 +44,19 @@ function addToCart(productId) {
     setCookie('shopping_cart', JSON.stringify(cart), 100);
 }
 
+function addToCartByAmount(productId, amount) {
+    var cart = JSON.parse(getCookie('shopping_cart'));
+    if (cart == null) {
+        cart = {};
+    }
+    product_id = parseInt(productId);
+    if (!(product_id in cart)) {
+        cart[product_id] = 0;
+    }
+    cart[product_id] = amount + 1;
+    setCookie('shopping_cart', JSON.stringify(cart), 100);
+}
+
 function removeFromCart(product_id) {
     var cart = JSON.parse(getCookie('shopping_cart'));
     if (cart == null) {
