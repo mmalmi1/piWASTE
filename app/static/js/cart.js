@@ -54,3 +54,14 @@ function removeFromCart(product_id) {
     }
     setCookie('shopping_cart', JSON.stringify(cart), 100);
 }
+
+function removeAllFromCart(product_id) {
+    var cart = JSON.parse(getCookie('shopping_cart'));
+    if (cart == null) {
+        cart = {};
+    }
+    if (product_id in cart && cart[product_id] > 0) {
+        cart[product_id] = 0;
+    }
+    setCookie('shopping_cart', JSON.stringify(cart), 100);
+}
