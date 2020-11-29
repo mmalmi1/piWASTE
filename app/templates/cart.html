@@ -4,6 +4,9 @@
    
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='assets/main.css')}}>
+
+    <!-- JS -->
+   <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
      
 {% endblock %}
 
@@ -30,53 +33,7 @@
 {% block script %}
 
 <script>
-    var raw = $(`
-    <!-- Card -->
-    <div class="mb-3">
-        <div class="pt-4 wish-list">
-            <div class="row mb-4">
-                <div class="col-md-5 col-lg-3 col-xl-3">
-                    <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-                        <img class="img-fluid w-100" src="{{url_for('static', filename='assets/broken_teddy1.png')}}" alt="Sample" width="300" height="300">
-                        <a href="#!">
-                            <div class="mask">
-                                <div class="mask rgba-black-slight"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-9 col-xl-9">
-                    <div>
-                        <div class="d-flex justify-content-between">
-                            <div class="text-left">
-                                <h5 class="product-name"></h5>
-                                <p class="pr-5 product-description text-muted small"></p>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row def-number-input number-input safari_only xs-4 w-100">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"class="minus decrease" style="background-color: #D51D00;">-</button>
-                                    <input class="product-quantity" min="0" name="quantity" value="" type="number">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"class="plus increase" style="background-color: #30C636;">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mr-5">
-                            <div>
-                                <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i> Remove item </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <p class="product-price"><span><strong id="summary"></strong></span></p>
-                                <hr>
-                                <p class="total-product-price"><span><strong id="summary"></strong></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <hr class="mb-4">  
-        </div>
-    </div>`);
-
+    
     var raw2 = $(`
     <!-- Card -->
     <div class="col-lg-6 mx-auto">
@@ -96,12 +53,67 @@
         return response.json();
     }).then(function(json) {
         let total = 0;
-        let amounts = 0;
+        let totalAmount = 0;
         for (var i in json) {
             let { amount, description, name, price } = json[i];
-            console.log(name);
 
-            // Create clone so old one donesn't get erased!
+            var raw = $(`
+            <!-- Card -->
+            <div class="mb-3">
+                <div class="pt-4 wish-list">
+                    <div class="row mb-4">
+                        <div class="col-md-5 col-lg-3 col-xl-3">
+                            <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                <img class="img-fluid w-100" src="{{url_for('static', filename='assets/broken_teddy1.png')}}" alt="Sample" width="300" height="300">
+                                <a href="#!">
+                                    <div class="mask">
+                                        <div class="mask rgba-black-slight"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-9 col-xl-9">
+                            <div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-left">
+                                        <h5 class="product-name"></h5>
+                                        <p class="pr-5 product-description text-muted small"></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row def-number-input number-input safari_only xs-4 w-100">
+                                            <a href="{{ url_for('shopping_cart.shopping_cart') }}">
+                                                <button onclick="removeFromCart( ${i} )" class="minus decrease" style="background-color: #D51D00;">-</button>
+                                            </a>
+                                            <input class="product-quantity" id="countNumber" min="0" name="quantity" value="" type="number">
+                                            <a href="{{ url_for('shopping_cart.shopping_cart') }}">
+                                                <button onclick="addToCartByAmount( ${i}, ${amount} )" class="plus increase" style="background-color: #30C636;">+</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mr-5">
+                                    <div>
+                                        <a href="{{ url_for('shopping_cart.shopping_cart') }}" type="button" onclick="removeAllFromCart( ${i} )" class="card-link-secondary small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p class="product-price"><span><strong id="summary"></strong></span></p>
+                                        <hr>
+                                        <p class="total-product-price"><span><strong id="summary"></strong></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <hr class="mb-4">  
+                </div>
+            </div>`);
+
+            console.log(i);
+            if( amount == 0) {
+                // If amount is 0, dont show the item
+                continue;
+            }
+            // Create clone so old one doesn't get erased!
             card = raw.clone();
             
             // Append item to deck, find by class card-deck
@@ -114,14 +126,22 @@
             $(".product-price").last().text(`Per piece: ${price}€`);
             $(".total-product-price").last().text(`In total: ${price*amount}€`);
             total += price*amount;
-            amounts += amount;
-            console.log(total);
+            totalAmount += amount;
 
         }
-        sum = raw2.clone();
-        sum.appendTo($(".card-deck"));
-        $(".total-price").last().text(total).append("€");
-        $(".cart-item-amount").first().text(`Cart: (${amounts}) items`);       
+
+        if (totalAmount == 0) {
+            // If no items in cart
+            $("section").append("<h4>You don't have anything in your cart!</h4>");
+        }
+        if (totalAmount != 0) {
+            // Otherwise
+            sum = raw2.clone();
+            sum.appendTo($(".card-deck"));
+            $(".total-price").last().text(Math.round(total* 1000) / 1000).append("€");
+            $(".cart-item-amount").first().text(`Cart: (${amounts}) items`);
+        }
+               
     });
 </script>
 
