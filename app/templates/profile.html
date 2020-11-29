@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 profile-info">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
@@ -68,5 +68,36 @@
 
 
 {% block script %}
+
+<script>
+    var raw = $(`
+    <div class="row">
+        <div class="col-sm-3">
+            <h6 class="mb-0">29/11/2020</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">Teddy: 3 <br> Guitar: 1</div>
+        </div>
+    <hr>`);
+
+    fetch(`../get_purchase_history/${cookie.user_id}`).then(function(response){
+        return response.json();
+    }).then(function(json) {
+        $(".profile-info").append("<h4>Purchase history</h4><hr>");
+        if (json.length == 0) {
+            console.log("empty");
+        } 
+        for(var i=0; i<json.length; i++) {
+            let { user_id, shopping_cart, timestamp } = json[i];
+            console.log(json[i]);
+        };
+        
+        // Create clone so old one doesn't get erased!
+        card = raw.clone();
+
+        // Append item to deck, find by class card-deck
+        card.appendTo($(".profile-info"));
+
+    });
+</script>
 
 {% endblock %}

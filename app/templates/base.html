@@ -85,6 +85,11 @@
             cookie[attribute[0]] = attribute[1];                   
         }
         console.log(cookie);
+        var d = new Date();
+        var month = d.getUTCMonth() + 1; //months from 1-12
+        var day = d.getUTCDate();
+        var year = d.getUTCFullYear();
+        console.log(day + "/" + month + "/" + year);
 
         if (cookie['logged_in'] != 'True') {
             //Make Profile and shopcart buttons invisible
