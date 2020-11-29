@@ -52,17 +52,17 @@
                                 <h5 class="product-name"></h5>
                                 <p class="pr-5 product-description text-muted small"></p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 btn-group-lg">
                                 <div class="row def-number-input number-input safari_only xs-4 w-100">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"class="minus decrease btn btn-outline-dark btn-block">-</button>
-                                    <input class="product-quantity" min="0" name="quantity" value="" type="number">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"class="plus increase btn btn-dark btn-block">+</button>
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"class="minus decrease col-sm-2 btn btn-outline-dark">-</button>
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"class="plus increase col-sm-2 btn btn-dark">+</button>
+                                    <input class="product-quantity col-sm-6 form-control" min="0" name="quantity" value="" type="number" style="text-align:center">
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mr-5">
                             <div>
-                                <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
                                     <img src="{{url_for('static', filename='assets/trashcan.png')}}"  alt="Admin" width="50" height="50">
                                     <title>Placeholder</title>
                                     <rect width="100%" height="100%" fill="#eee"/>

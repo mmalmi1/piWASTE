@@ -1,19 +1,40 @@
 {% extends 'base.html' %}
 
 {% block head %}
-
-   <!-- Custom styles for this template -->
-      
+   
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='assets/main.css')}}>
+     
 {% endblock %}
 
 
 {% block body %}
 
-<div class="row">
-    <div class="col-md-4 mx-auto"> 
-        <h1 style="margin-top:20%"> 
-            Empty
-        </h1>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Welcome to piWASTE!</h1>
+        <p class="lead text-muted">This here could be some description about the website. Galapagosinpingviini (Spheniscus mendiculus) on Galápagossaarilla endeemisenä elävä pingviinilaji. Se on maailman pohjoisin pingviinilaji ja ainoa, joka joskus liikkuu pohjoiselle pallonpuoliskolle asti.</p>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="searchfield">
+                <div class="my-2 my-sm-0" preserveAspectRatio="xMidYMid slice" focusable="false" id="shopcartButton">
+                    <img src="{{url_for('static', filename='assets/search_icon.png')}}"  alt="Admin" width="25" height="25">
+                    <title>Search icon</title>
+                    <rect width="100%" height="100%" fill="#eee"/>
+                </div> 
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="searchfield">
+          </div>
+        <div class="row">
+            <div class="card-deck md-4 text-center">
+            </div>
+        </div>
     </div>
 </div>
 
@@ -21,5 +42,46 @@
 
 
 {% block script %}
+<script type=text/javascript>
+    var raw = $(`
+    <div class="main-page-card card-group">
+        <div class="card inner-card md-4 box-shadow" style="width: 22rem;">
+            <a class="product-link" href="">
+                <div class="card-body">
+                    <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#eee"/>
+                    </div>                       
+            </a>
+                    <h2 class="card-title">Name</h2>
+                    <h3 class="card-price">1.99€</h3>
+                    <p class="card-description">Empty</p>
+                </div>                
+        </div>
+    </div>`);
+    
+    fetch("../get_all_entrys/products").then(function(response){
+        return response.json();
+    }).then(function(json) {
+        for(var i=0; i<json.length; i++) {
+            let { id, name, price, description, image, stock } = json[i];
+            // Create clone so old one donesn't get erased!
+            card = raw.clone();
+            
+            // Append item to deck, find by class card-deck
+            card.appendTo($(".card-deck"));
+            
+            // Insert values from DB
+            $(".card-title").last().text(name);
+            $(".card-price").last().text(price).append("€");
+            $(".card-description").last().text(description);
 
+            var url = "product/".concat(id);
+            $(".product-link").last().attr("href", url);
+
+            
+        };       
+
+    });
+</script>
 {% endblock %}
