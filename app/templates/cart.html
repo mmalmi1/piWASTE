@@ -44,7 +44,9 @@
                 <h5 class="total-price"><span><strong>53.98€</strong></span></h5>
                 </li>
             </ul>
-            <button type="button" class="btn btn-outline-dark btn-block">Buy</button>
+            <form action="" method="post">
+                <button class="btn btn-primary btn-block" type="submit">Buy</button>
+            </form>
         </div>
     </div>`);
 
@@ -116,8 +118,7 @@
                 <hr class="mb-4">  
                 </div>
             </div>`);
-
-            console.log(i);
+            
             if( amount == 0) {
                 // If amount is 0, dont show the item
                 continue;
@@ -149,7 +150,7 @@
             sum = raw2.clone();
             sum.appendTo($(".card-deck"));
             $(".total-price").last().text(Math.round(total* 1000) / 1000).append("€");
-            $(".cart-item-amount").first().text(`Cart: (${amounts}) items`);
+            $(".cart-item-amount").first().text(`Cart: (${totalAmount}) items`);
         }
                
     });

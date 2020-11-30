@@ -36,7 +36,7 @@ CREATE TABLE reviews (
 
 
 CREATE TABLE purchase_history (
-  user_id INTEGER PRIMARY KEY,
+  user_id INTEGER,
   shopping_cart TEXT NOT NULL,
   timestamp TEXT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (user_id)
@@ -71,4 +71,8 @@ INSERT INTO users (username, password, access_level, name, email, phone, address
 INSERT INTO reviews (text, user_id, product_id) VALUES ('Test review', 1, 1);
 INSERT INTO reviews (text, user_id, product_id) VALUES ('Another test review', 2, 1);
 
-INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES (2, "{'1':0,'2':3,'14':1}", "29/11/2020");
+INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Teddy': 8, 'Phone':
+ 1, 'Sign': 2, 'Mystery Bag': 1, 'Scuba Suita': 1, 'Tire': 1}", "Mon Nov 30 16:09:04 2020");
+
+INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Phone': 1, 'Doll':
+3, 'Mystery Bag': 2}", "Mon Nov 30 16:14:30 2020")
