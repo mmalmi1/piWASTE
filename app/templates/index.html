@@ -54,7 +54,7 @@
     }).then(function(json) {
         for(var i=0; i < 3; i++) {
             let { id, name, price, description, image, stock } = json[i];
-            // Create clone so old one donesn't get erased!
+            // Create clone so old one doesn't get erased!
             card = raw.clone();
             
             // Append item to deck, find by class card-deck
