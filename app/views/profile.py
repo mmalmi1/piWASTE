@@ -17,7 +17,7 @@ def profile():
             render_template('profile.html', user_id=user_id, username=profile['username'],
                             name=profile['name'], email=profile['email'],
                             phone=profile['phone'], address=profile['address']))
-    return Response("Need to log in to access profile information", 401)
+    return make_response(redirect(url_for('login.login')))
 
 @mod.route('/profile/edit', methods=['GET','POST'])
 def edit():
