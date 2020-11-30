@@ -54,8 +54,7 @@
         let total = 0;
         let totalAmount = 0;
         for (var i in json) {
-            let { amount, description, name, price } = json[i];
-
+            let { amount, description, name, price, image } = json[i];
             var raw = $(`
             <!-- Card -->
             <div class="mb-3">
@@ -63,7 +62,10 @@
                     <div class="row mb-4">
                         <div class="col-md-5 col-lg-3 col-xl-3">
                             <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-                                <img class="img-fluid w-100" src="{{url_for('static', filename='assets/broken_teddy1.png')}}" alt="Sample" width="300" height="300">
+                                <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <img class="product-image" alt="IMAGE NOT FOUND" width="150" height="150"
+                                    <rect width="100%" height="100%" fill="#eee"/>
+                                </div>   
                                 <a href="#!">
                                     <div class="mask">
                                         <div class="mask rgba-black-slight"></div>
@@ -73,7 +75,7 @@
                         </div>
                         <div class="col-md-7 col-lg-9 col-xl-9">
                             <div>
-                                <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-between align-items-center">
                                     <div class="text-left">
                                         <h5 class="product-name"></h5>
                                         <p class="pr-5 product-description text-muted small"></p>
@@ -132,6 +134,7 @@
             $(".product-quantity").last().val(amount);
             $(".product-price").last().text(`Per piece: ${price}€`);
             $(".total-product-price").last().text(`In total: ${price*amount}€`);
+            $(".product-image").last().attr("src", "static/" + image);
             total += price*amount;
             totalAmount += amount;
 

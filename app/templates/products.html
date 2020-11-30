@@ -48,8 +48,8 @@
         <div class="card inner-card md-4 box-shadow" style="width: 22rem;">
             <a class="product-link" href="">
                 <div class="card-body">
-                    <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
+                    <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <img class="product-image" alt="Admin" width="250" height="250"
                         <rect width="100%" height="100%" fill="#eee"/>
                     </div>                       
             </a>
@@ -75,6 +75,7 @@
             $(".card-title").last().text(name);
             $(".card-price").last().text(price).append("€");
             $(".card-description").last().text(description);
+            $(".product-image").last().attr("src", "static/" + image);
 
             var url = "product/".concat(id);
             $(".product-link").last().attr("href", url);

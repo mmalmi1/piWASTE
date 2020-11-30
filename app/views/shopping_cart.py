@@ -26,7 +26,8 @@ def get_shopping_cart():
             'name': data['name'],
             'price': data['price'],
             'description': data['description'],
-            'amount': amount
+            'amount': amount,
+            'image': data['image']
         }
     print("shopping cart:", shopping_cart)
     return make_response(shopping_cart)
