@@ -33,58 +33,6 @@
 {% block script %}
 
 <script>
-    var raw = $(`
-    <!-- Card -->
-    <div class="mb-3">
-        <div class="pt-4 wish-list">
-            <div class="row mb-4">
-                <div class="col-md-5 col-lg-3 col-xl-3">
-                    <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-                        <img class="img-fluid w-100" src="{{url_for('static', filename='assets/broken_teddy1.png')}}" alt="Sample" width="300" height="300">
-                        <a href="#!">
-                            <div class="mask">
-                                <div class="mask rgba-black-slight"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-9 col-xl-9">
-                    <div>
-                        <div class="d-flex justify-content-between">
-                            <div class="text-left">
-                                <h5 class="product-name"></h5>
-                                <p class="pr-5 product-description text-muted small"></p>
-                            </div>
-                            <div class="col-md-6 btn-group-lg">
-                                <div class="row def-number-input number-input safari_only xs-4 w-100">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"class="minus decrease col-sm-2 btn btn-outline-dark">-</button>
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"class="plus increase col-sm-2 btn btn-dark">+</button>
-                                    <input class="product-quantity col-sm-6 form-control" min="0" name="quantity" value="" type="number" style="text-align:center">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mr-5">
-                            <div>
-                                <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <img src="{{url_for('static', filename='assets/trashcan.png')}}"  alt="Admin" width="50" height="50">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#eee"/>
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <p class="product-price"><span><strong id="summary"></strong></span></p>
-                                <hr>
-                                <p class="total-product-price"><span><strong id="summary"></strong></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <hr class="mb-4">  
-        </div>
-    </div>`);
-
-
     var raw2 = $(`
     <!-- Card -->
     <div class="col-lg-6 mx-auto">
@@ -130,21 +78,29 @@
                                         <h5 class="product-name"></h5>
                                         <p class="pr-5 product-description text-muted small"></p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 btn-group-lg">
                                         <div class="row def-number-input number-input safari_only xs-4 w-100">
                                             <a href="{{ url_for('shopping_cart.shopping_cart') }}">
-                                                <button onclick="removeFromCart( ${i} )" class="minus decrease" style="background-color: #D51D00;">-</button>
+                                                <button onclick="removeFromCart( ${i} )" class="mx-auto minus decrease btn btn-outline-dark">-</button>
                                             </a>
-                                            <input class="product-quantity" id="countNumber" min="0" name="quantity" value="" type="number">
                                             <a href="{{ url_for('shopping_cart.shopping_cart') }}">
-                                                <button onclick="addToCartByAmount( ${i}, ${amount} )" class="plus increase" style="background-color: #30C636;">+</button>
+                                                <button onclick="addToCartByAmount( ${i}, ${amount} )" class="mx-auto plus increase btn btn-dark">+</button>
                                             </a>
+                                            <input class="product-quantity col-sm-6" id="countNumber" min="0" name="quantity" value="" type="number">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mr-5">
                                     <div>
-                                        <a href="{{ url_for('shopping_cart.shopping_cart') }}" type="button" onclick="removeAllFromCart( ${i} )" class="card-link-secondary small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                        <a href="{{ url_for('shopping_cart.shopping_cart') }}" type="button" onclick="removeAllFromCart( ${i} )" class="card-link-secondary small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i>
+                                            <div>
+                                            <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                                <img src="{{url_for('static', filename='assets/trashcan.png')}}"  alt="Admin" width="50" height="50">
+                                                <title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#eee"/>
+                                        </div> 
+                                        </a>
+                            </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <p class="product-price"><span><strong id="summary"></strong></span></p>
