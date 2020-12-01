@@ -24,6 +24,7 @@ def test_get_cart_contents(client, app):
             "99999": {
                 "name": "TestProduct",
                 "price": 15.1,
+                "image": "assets/broken_teddy1.png",
                 "description": "This is a test description",
                 "amount": 13
             }

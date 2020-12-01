@@ -148,7 +148,7 @@
             // Otherwise
             sum = raw2.clone();
             sum.appendTo($(".card-deck"));
-            $(".total-price").last().text(Math.round(total* 1000) / 1000).append("€");
+            $(".total-price").last().text(total.toFixed(2)).append("€");
             $(".cart-item-amount").first().text(`Cart: (${amounts}) items`);
         }
                
