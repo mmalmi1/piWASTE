@@ -21,7 +21,8 @@ CREATE TABLE users (
   name TEXT NOT NULL,
   email TEXT NOT NULL,
   phone TEXT,
-  address TEXT
+  address TEXT,
+  money REAL
 );
 
 CREATE TABLE reviews (
