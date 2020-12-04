@@ -67,7 +67,6 @@ INSERT INTO users (username, password, access_level, name, email) VALUES ('admin
 INSERT INTO users (username, password, access_level, name, email, phone, address) VALUES
                   ('jaksu', '1234', 1, 'Jakke Jäyhä', 'jakkej@mail.com', '322', 'Tie 1');
 
-
 INSERT INTO reviews (text, user_id, product_id) VALUES ('Test review', 1, 1);
 INSERT INTO reviews (text, user_id, product_id) VALUES ('Another test review', 2, 1);
 
