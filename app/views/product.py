@@ -25,16 +25,6 @@ def product(product_id=None):
     reviews = db.get_from_db(command)
     reviews = reviews.fetchall()
 
-    num_of_reviews = 0
-
-    print("num of rews",len(reviews))
-
-    for review in reviews:
-        print(review["text"], "from user", review["user_id"])
-        num_of_reviews += 1
-
-
-
     resp = make_response(render_template('product.html', product_id=prod["product_id"], name=prod["name"],
                                         price=prod["price"], description=prod["description"],
                                         image=prod["image"], stock=prod["stock"], reviews=reviews))
