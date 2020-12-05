@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, url_for, request, redirect, Response, make_response
+from flask import Blueprint, render_template, url_for, request, redirect, Response, make_response, jsonify, json
+import time
 from app import db
 
 mod = Blueprint('profile', __name__)
@@ -52,3 +53,16 @@ def edit():
             command = f'UPDATE users SET password = "{password}" WHERE user_id = {user_id}'
             db.push_into_db(command)
         return make_response(redirect(url_for('profile.profile')))
+
+@mod.route('/get_purchase_history/<string:userId>')
+def get_from_db(userId=None):
+    """
+    Get user's purchase history by id, return json.
+    """
+    command = f'SELECT * FROM purchase_history WHERE user_id = {userId}'
+    entrys = db.get_from_db(command)
+    payload = []
+
+    for i in entrys:
+        payload.append({'user_id': i[0], 'shopping_cart': i[1], 'timestamp': i[2]})
+    return jsonify(payload)

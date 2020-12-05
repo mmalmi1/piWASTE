@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 profile-info">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
@@ -68,5 +68,45 @@
 
 
 {% block script %}
+
+<script>
+    var raw = $(`
+    <div class="row">
+        <div class="col-sm-4">
+            <h6 class="mb-0 buy-date"></h6>
+        </div>
+        <div class="col-sm-8 text-secondary items"></div>
+        </div>
+    <hr>`);
+
+    fetch(`../get_purchase_history/${cookie.user_id}`).then(function(response){
+        return response.json();
+    }).then(function(json) {
+        $(".profile-info").append("<h4>Purchase history</h4><hr>");
+        if (json.length == 0) {
+            console.log("empty");
+        } 
+        for(var i=0; i<json.length; i++) {
+            let { user_id, shopping_cart, timestamp } = json[i];
+            time_split = timestamp.split(" ");
+
+            // JSON to dict
+            var obj = JSON.parse(shopping_cart.replace(/'/g,"\""));
+
+            // Create clone so old one doesn't get erased!
+            card = raw.clone();
+
+            // Append item to deck, find by class profile-info
+            card.appendTo($(".profile-info"));
+
+            $(".buy-date").last().append(`${time_split[2]}. ${time_split[1]} ${time_split[4]}, ${time_split[3]}`);
+
+            for(var key in obj){
+                $(".items").last().append(`${key}: ${obj[key]} <br>`);
+            }
+        };
+
+    });
+</script>
 
 {% endblock %}
