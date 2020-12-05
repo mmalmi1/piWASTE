@@ -15,27 +15,27 @@ def get_from_db(database=None):
     payload = []
     if database == "products":
         for i in entrys:
-            payload.append({'id': i[0], 'name': i[1], 'price': i[2], 'description': i[3], 'image': i[4], 'stock': i[5]})
+            if i[-1] != 0: # Only return visible products
+                payload.append({'id': i[0], 'name': i[1], 'price': i[2], 'description': i[3], 'image': i[4], 'stock': i[5]})
         return jsonify(payload)
     for i in entrys:
         print(tuple(i))
     return "OK"
 
-@mod.route('/data')
-def query():
+@mod.route("/admin/create_product")
+def create_product():
     """
-    query database, example query below
-    http://127.0.0.1:5000/data?table=users&username=admin2&password=admin&access_level=1
-    """
-    table = request.args.get('table')
-    if table == "products":
-        command = f'INSERT INTO products (name, price, description) VALUES ("{request.args.get("name")}", "{request.args.get("price")}", "{request.args.get("description")}")'
-    elif table == 'users':
-        command = f'INSERT INTO users (username, password, access_level) VALUES ("{request.args.get("username")}", "{request.args.get("password")}", "{request.args.get("access_level")}")'
-    elif table == 'reviews':
-        command = f'INSERT INTO reviews (text, user_id, product_id) VALUES ("{request.args.get("text")}", "{request.args.get("user_id")}", "{request.args.get("product_id")}")'
-    else:
-        return "query failed, table not found"
+    Creates a new product. Currently not possible to set product image, uses assets/placeholder.png
+    Name, price, description and stock need to be provided
+    Visible is optional (defaults to 1)
+    example: /admin/create_product?name=<name>&price=<price>&description=<description>&stock=<stock>
 
-    success = db.push_into_db(command)
-    return "OK"
+    """
+    vals = request.args
+    access_level = eval(request.cookies.get('access_level'))
+    if access_level < 2:
+        return Response("Unauthorized", 403)
+    command = f'INSERT INTO products (name, price, description, stock, image, visible) VALUES ("{vals.get("name")}", "{vals.get("price")}", "{vals.get("description")}", "{vals.get("stock")}", "assets/placeholder.png", "{vals.get("visible", 1)}")'
+    if db.push_into_db(command):
+        return "Created product"
+    return "Failed to create product"

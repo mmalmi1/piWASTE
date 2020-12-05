@@ -20,9 +20,14 @@ def product(product_id=None):
     command = f'SELECT * FROM products WHERE product_id = {product_id}'
     prod = db.get_from_db(command)
     prod = prod.fetchall()[0]
+
+    command = f'SELECT * FROM reviews WHERE product_id = {product_id}'
+    reviews = db.get_from_db(command)
+    reviews = reviews.fetchall()
+
     resp = make_response(render_template('product.html', product_id=prod["product_id"], name=prod["name"],
                                         price=prod["price"], description=prod["description"],
-                                        image=prod["image"], stock=prod["stock"]))
+                                        image=prod["image"], stock=prod["stock"], reviews=reviews))
     return resp
 
 @mod.route('/product/<int:product_id>/submit_review', methods=['POST'])

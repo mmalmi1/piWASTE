@@ -36,7 +36,7 @@
                   <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
                           <!-- <img src={{ image }} alt="Admin" width="250"> -->
-                          <img src="{{url_for('static', filename=image)}}"  alt="Admin" width="250" height="250">
+                          <img src="{{url_for('static', filename=image)}}"  alt="No Image" width="250" height="250">
                       </div>
                   </div>
               </div>
@@ -107,29 +107,28 @@
               <div class="card-body">
                   <div class="row">
                       <div class="col-sm-3 mx-auto">
-                          <h5 class="mb-0">Comments</h5>
+                          <h5 class="mb-0">Leave review</h5>
                       </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col mx-auto">
-                      <div class="btn-toolbar mb-0" role="toolbar" aria-label="Toolbar with button groups">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn btn-outline-dark">1</button>
-                          <button type="button" class="btn btn-outline-dark">2</button>
-                          <button type="button" class="btn btn-outline-dark">3</button>
-                          <button type="button" class="btn btn-outline-dark">4</button>
-                          <button type="button" class="btn btn-outline-dark">5</button> 
-                        </div>
-                      </div>
                     </div>
                    </div>
                    <div class="row">
                     <form action="/product/{{ product_id }}/submit_review" method="post">
                       <textarea placeholder="Enter your message here" name="message" cols="50" rows="4"></textarea>
                       <input type="submit" value="Submit">
-                   </div>
+                    </div>
                </div>
+               <h2>Reviews</h2>
+                <ul>
+                  {% for review in reviews %}
+                    <li>
+                      <p>{{ review["text"] }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
             </div>
         </div>
   </div>
