@@ -22,7 +22,7 @@ def shopping_cart():
             cart = {}
             for pid, amount in product_ids.items():
                 # Ignore items that have 0 amount
-                if amount is not 0:
+                if amount != 0:
                     command = f'SELECT * FROM products WHERE product_id = {pid}'
                     prod = db.get_from_db(command)
                     prod = prod.fetchall()[0]
