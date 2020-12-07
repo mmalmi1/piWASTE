@@ -28,11 +28,11 @@ CREATE TABLE users (
 CREATE TABLE reviews (
   review_id INTEGER PRIMARY KEY AUTOINCREMENT,
   text TEXT NOT NULL,
-  user_id INTEGER NOT NULL,
+  username TEXT NOT NULL,
   product_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (username) REFERENCES users (username),
   FOREIGN KEY (product_id) REFERENCES products (product_id),
-  UNIQUE(user_id, product_id)
+  UNIQUE(username, product_id)
 );
 
 
@@ -68,8 +68,8 @@ INSERT INTO users (username, password, access_level, name, email) VALUES ('admin
 INSERT INTO users (username, password, access_level, name, email, phone, address) VALUES
                   ('jaksu', '1234', 1, 'Jakke Jäyhä', 'jakkej@mail.com', '322', 'Tie 1');
 
-INSERT INTO reviews (text, user_id, product_id) VALUES ('Test review', 1, 1);
-INSERT INTO reviews (text, user_id, product_id) VALUES ('Another test review', 2, 1);
+INSERT INTO reviews (text, username, product_id) VALUES ('Test review', 'admin', 1);
+INSERT INTO reviews (text, username, product_id) VALUES ('Another test review', 'jaksu', 1);
 
 INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Teddy': 8, 'Phone':
  1, 'Sign': 2, 'Mystery Bag': 1, 'Scuba Suita': 1, 'Tire': 1}", "Mon Nov 30 16:09:04 2020");
