@@ -1,14 +1,18 @@
 function addCount(stock) {
     var element = document.getElementById("countNumber");
     if(element.value < stock) {
-    element.value = parseInt(element.value)+ 1;
+        element.readOnly = false;
+        element.value = parseInt(element.value)+ 1;
+        element.readOnly = true;
     }
 };
 
 function removeCount() {
     var element = document.getElementById("countNumber");
     if(element.value > 1) {
-    element.value = parseInt(element.value) - 1;
+        element.readOnly = false;
+        element.value = parseInt(element.value) - 1;
+        element.readOnly = true;
     } 
 }
 
