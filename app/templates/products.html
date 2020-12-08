@@ -29,10 +29,13 @@
                 </div> 
               </span>
             </div>
-            <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="searchfield">
+            <input type="text" id="search" class="form-control" placeholder="Type here" aria-label="" aria-describedby="searchfield">
+            <button class="search-page-btn btn btn-lg btn-primary btn-block" type="submit" onclick=search()>
+                Search
+            </button>
           </div>
         <div class="row">
-            <div class="card-deck md-4 text-center">
+            <div id="card-deck" class="card-deck md-4 text-center">
             </div>
         </div>
     </div>
@@ -40,49 +43,59 @@
 
 {% endblock %}
 
-
 {% block script %}
 <script type=text/javascript>
-    var raw = $(`
-    <div class="main-page-card card-group">
-        <div class="card inner-card md-4 box-shadow" style="width: 22rem;">
-            <a class="product-link" href="">
-                <div class="card-body">
-                    <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <img class="product-image" alt="No Image" width="250" height="250"
-                        <rect width="100%" height="100%" fill="#eee"/>
-                    </div>                       
-            </a>
-                    <h2 class="card-title">Name</h2>
-                    <h3 class="card-price">1.99€</h3>
-                    <p class="card-description">Empty</p>
-                </div>                
-        </div>
-    </div>`);
+
+    // Search functionality
+    function search() {
+
+        input = document.getElementById('search').value;
+        document.getElementById('card-deck').innerHTML = ""
+
+        var raw = $(`
+        <div class="main-page-card card-group">
+            <div class="card inner-card md-4 box-shadow" style="width: 22rem;">
+                <a class="product-link" href="">
+                    <div class="card-body">
+                        <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <img class="product-image" alt="No Image" width="250" height="250"
+                            <rect width="100%" height="100%" fill="#eee"/>
+                        </div>                       
+                </a>
+                        <h2 class="card-title">Name</h2>
+                        <h3 class="card-price">1.99€</h3>
+                        <p class="card-description">Empty</p>
+                    </div>                
+            </div>
+        </div>`);
+
+        fetch("../products/search="+input+"").then(function(response){
+            return response.json();
+        }).then(function(json) {
+            for(var i=0; i<json.length; i++) {
+                let { id, name, price, description, image, stock } = json[i];
+                // Create clone so old one donesn't get erased!
+                card = raw.clone();
+                
+                // Append item to deck, find by class card-deck
+                card.appendTo($(".card-deck"));
+                
+                // Insert values from DB
+                $(".card-title").last().text(name);
+                $(".card-price").last().text(price).append("€");
+                $(".card-description").last().text(description);
+                $(".product-image").last().attr("src", "static/" + image);
+
+                var url = "product/".concat(id);
+                $(".product-link").last().attr("href", url);
+
+                
+            };       
+        });
+    }
     
-    fetch("../get_all_entrys/products").then(function(response){
-        return response.json();
-    }).then(function(json) {
-        for(var i=0; i<json.length; i++) {
-            let { id, name, price, description, image, stock } = json[i];
-            // Create clone so old one donesn't get erased!
-            card = raw.clone();
-            
-            // Append item to deck, find by class card-deck
-            card.appendTo($(".card-deck"));
-            
-            // Insert values from DB
-            $(".card-title").last().text(name);
-            $(".card-price").last().text(price).append("€");
-            $(".card-description").last().text(description);
-            $(".product-image").last().attr("src", "static/" + image);
+    // Get all items when page is loaded 
+    search()
 
-            var url = "product/".concat(id);
-            $(".product-link").last().attr("href", url);
-
-            
-        };       
-
-    });
 </script>
 {% endblock %}
