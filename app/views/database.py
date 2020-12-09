@@ -4,24 +4,6 @@ mod = Blueprint('database', __name__)
 
 from app import db
 
-@mod.route('/get_all_entrys/<string:database>')
-def get_from_db(database=None):
-    """
-    get all entrys in a specified database
-    prints them into the server log
-    """
-    command = f"SELECT * FROM {database}"
-    entrys = db.get_from_db(command)
-    payload = []
-    if database == "products":
-        for i in entrys:
-            if i[-1] != 0: # Only return visible products
-                payload.append({'id': i[0], 'name': i[1], 'price': i[2], 'description': i[3], 'image': i[4], 'stock': i[5]})
-        return jsonify(payload)
-    for i in entrys:
-        print(tuple(i))
-    return "OK"
-
 @mod.route("/admin/create_product")
 def create_product():
     """
