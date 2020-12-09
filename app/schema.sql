@@ -52,7 +52,7 @@ INSERT INTO products (name, price, description, image, stock) VALUES ('Sign', 59
 INSERT INTO products (name, price, description, image, stock) VALUES ('Fish Tank', 2.20, 'Fish tank which might need little bit flextape!', 'assets/fishtank.png', 7);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Halloween Mask', 15.20, 'Was searching for stuff when guy came at me.. Hit him hard in the face and this fall off', 'assets/halloween_mask.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Happy Robot', 100.99, 'Very happy robot! Not here to destroy the world or anything', 'assets/happy_robot1.png', 5);
-INSERT INTO products (name, price, description, image, stock) VALUES ('Mystery Bag', 50.99, 'Something very sus inside! Smells funny, definatly worth it to by', 'assets/mystery_bag.png', 5);
+INSERT INTO products (name, price, description, image, stock, visible) VALUES ('Mystery Bag', 50.99, 'Something very sus inside! Smells funny, definatly worth it to by', 'assets/mystery_bag.png', 5, 0);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Suitcase', 1000.99, '4 Digit code! Could not break it but hackerman like you definatly can', 'assets/mystery_suitcase.png', 5);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Painting', 599.99, 'Not picasso, but really cool', 'assets/painting.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Rocket', 1040.99, 'Planning to escape? Visited Tesla HQs dumpster one day, found this.', 'assets/rocket.png', 1);
