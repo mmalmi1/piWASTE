@@ -20,7 +20,6 @@
           <div class="card-body">
             <div class="row">
               <h1 class="jumbotron-heading mx-auto">{{ name }}</h1>
-              <!-- <h7 class="mb-0 mx-auto">{{ name }}</h7> -->
             </div>
           </div>
         </div>
@@ -31,7 +30,7 @@
 <div class="container">
   <div class="main-body" style="padding-top: 1%;">
       <div class="row gutters-sm">
-          <div class="col-md-6 mb-5">
+          <div class="col-md-6 mb-3">
               <div class="card">
                   <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
@@ -44,69 +43,68 @@
           <div class="col-md-6">
               <div class="card mb-3">
                   <div class="card-body">
-                      <div class="row">
+                    <div class="row" style="text-align:center">
+                      <div class="col-sm-5 mx-auto">
+                          <h5 class="mb-0">Information</h5>
+                      </div>
+                    </div>
+                    <hr>
+                      <div class="row" style="text-align:center">
                           <div class="col-sm-3">
                               <h6 class="mb-0">Price</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">{{ price }}</div>
                       </div>
                       <hr>
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <button type="button" onclick=addToCart({{ product_id }}) class="btn btn-outline-dark">Add to Basket</button>
-                        </div>
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-6 text-secondary">
-                          <div class="input-group mb-4">
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-dark col-sm-2" type="button" onclick="removeCount()">-</button>
-                              <input type="text" class="form-control col-sm-2" style="text-align:center"
-                                id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1>
-                              <button class="btn btn-dark col-sm-2" type="button" onclick="addCount( {{ stock }} )">+</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
+                      <div class="row" style="text-align:center">
                           <div class="col-sm-3">
                               <h6 class="mb-0">Stock</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">{{ stock }}</div>
                       </div>
                       <hr>
-                      <div class="row">
-                          <div class="col-sm-3">
-                              <h6 class="mb-0">Rating</h6>
+                      <div class="row justify-content-center align-self-center" style="text-align:center"> 
+                        <div class="col-sm-6 text-secondary">
+                          <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                              <button type="button btn-outline-dark" onclick=addToCart({{ product_id }}) class="btn btn-outline-dark">
+                                <img src="{{url_for('static', filename='assets/shopping_cart.png')}}"  alt="No Image" width="35" height="35">
+                                <title>Shopping Cart</title>
+                                <rect width="100%" height="100%" fill="#eee"/>
+                              </button>
+                              <button class="btn btn-outline-dark col-sm-4" type="button" onclick="removeCount()">-</button>
+                              <input type="text" class="form-control col-sm-3" style="text-align:center;height:50px"
+                                id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1 readonly>
+                              <button class="btn btn-dark col-sm-4" type="button" onclick="addCount( {{ stock }} )">+</button>
+                            </div>
                           </div>
-                          <div class="col-sm-9 text-secondary">AddRatingHere</div>
+                        </div>
                       </div>
-                  </div>               
+                    </div>           
               </div>
           </div>
           <div class="col-md-6">
             <div class="card mb-3">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row" style="text-align:center">
                         <div class="col-sm-5 mx-auto">
                             <h5 class="mb-0">Description</h5>
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-12 mx-auto">
+                    <div class="row" style="text-align:center">
+                        <div class="col-sm-12">
                             <h6 class="mb-0">{{ description }}</6>
                         </div>
                     </div>
                 </div>               
             </div>
-        </div>
+          </div>
         <div class="col-md-6">
           <div class="card mb-3">
               <div class="card-body">
-                  <div class="row">
-                      <div class="col-sm-3 mx-auto">
+                  <div class="row" style="text-align:center">
+                      <div class="col-sm-5 mx-auto">
                           <h5 class="mb-0">Leave review</h5>
                       </div>
                   </div>
@@ -115,23 +113,52 @@
                     <div class="col mx-auto">
                     </div>
                    </div>
-                   <div class="row">
+                   <div class="row" style="text-align:center">
                     <form action="/product/{{ product_id }}/submit_review" method="post">
                       <textarea placeholder="Enter your message here" name="message" cols="50" rows="4"></textarea>
-                      <input type="submit" value="Submit">
+                      <input type="submit" value="Submit" class="btn btn-outline-dark">
                     </div>
                </div>
-               <h2>Reviews</h2>
-                <ul>
-                  {% for review in reviews %}
-                    <li>
-                      <h5>{{ review["username"] }}</h5> 
-                      <p>{{ review["text"] }}</p>
-                    </li>
-                  {% endfor %}
-                </ul>
             </div>
         </div>
+        <div class="col-md-12">
+          <div class="card mb-3">
+              <div class="card-body">
+                  <div class="row" style="text-align:center">
+                      <div class="col-sm-5 mx-auto">
+                          <h5 class="mb-0">Reviews</h5>
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row" style="text-align:center">
+                      <div class="col-sm-12">
+                          <ul>
+                            {% for review in reviews %}
+                              <div class="col-md-12">
+                                <div class="card mb-3">
+                                  <div class="card-body">
+                                    <div class="row" style="text-align:center">
+                                      <div class="col mx-auto">
+                                        <h5>{{ review["username"] }}</h5> 
+                                      </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                      <div class="col-sm-12 mx-auto">
+                                        <p>{{ review["text"] }}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                  </div>
+              </div>               
+          </div>
+      </div>
+        
   </div>
 </div>
 

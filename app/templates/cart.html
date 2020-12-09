@@ -83,14 +83,15 @@
                                         <p class="pr-5 product-description text-muted small"></p>
                                     </div>
                                     <div class="col-md-6 btn-group-lg">
-                                        <div class="row def-number-input number-input safari_only xs-4 w-100">
+                                        <div class="row def-number-input number-input safari_only xs-4 w-100 justify-content-center align-self-center" style="text-align:center"">
                                             <a href="{{ url_for('shopping_cart.shopping_cart') }}">
                                                 <button onclick="removeFromCart( ${i} )" class="mx-auto minus decrease btn btn-outline-dark">-</button>
                                             </a>
                                             <a href="{{ url_for('shopping_cart.shopping_cart') }}">
                                                 <button onclick="addToCartByAmount( ${i}, ${amount} )" class="mx-auto plus increase btn btn-dark">+</button>
                                             </a>
-                                            <input class="product-quantity col-sm-6" id="countNumber" min="0" name="quantity" value="" type="number">
+                                            <input type="text" class="form-control col-sm-3 product-quantity" style="text-align:center;height:40px"
+                                                id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1 readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -136,6 +137,7 @@
             $(".product-price").last().text(`Per piece: ${price}€`);
             $(".total-product-price").last().text(`In total: ${price*amount}€`);
             $(".product-image").last().attr("src", "static/" + image);
+            $
             total += price*amount;
             totalAmount += amount;
 
