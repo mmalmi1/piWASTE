@@ -56,9 +56,12 @@
                         </div>
                     </div>
                 </div>
-                <a class="form-inline mt-2 mt-md-0" href="{{ url_for('profile.edit') }}">
+                <a class="form-inline mt-2 mt-md-0 justify-content-center align-self-center" href="{{ url_for('profile.edit') }}">
                     <button class="btn btn-outline-dark edit-button" type="submit">Edit profile</button>
                 </a>
+            </div>
+            <div class="card col-md-12 purchase_history">
+
             </div>
         </div>
     </div>
@@ -82,7 +85,7 @@
     fetch(`../get_purchase_history/${cookie.user_id}`).then(function(response){
         return response.json();
     }).then(function(json) {
-        $(".profile-info").append("<h4>Purchase history</h4><hr>");
+        $(".purchase_history").append("<h4>Purchase history</h4><hr>");
         if (json.length == 0) {
             console.log("empty");
         } 
@@ -97,7 +100,7 @@
             card = raw.clone();
 
             // Append item to deck, find by class profile-info
-            card.appendTo($(".profile-info"));
+            card.appendTo($(".purchase_history"));
 
             $(".buy-date").last().append(`${time_split[2]}. ${time_split[1]} ${time_split[4]}, ${time_split[3]}`);
 
