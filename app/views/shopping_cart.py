@@ -26,7 +26,7 @@ def shopping_cart():
                     command = f'SELECT * FROM products WHERE product_id = {pid}'
                     prod = db.get_from_db(command)
                     prod = prod.fetchall()[0]
-                    cart[prod["name"]] = amount
+                    cart[prod["name"]] = [amount, round(prod["price"]*amount, 2)]
             cart = str(cart)
             t = time.asctime()
             command = f'INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("{ user_id }", "{ cart }", "{ t }")'

@@ -71,8 +71,8 @@ INSERT INTO users (username, password, access_level, name, email, phone, address
 INSERT INTO reviews (text, username, product_id) VALUES ('I like it', 'admin', 1);
 INSERT INTO reviews (text, username, product_id) VALUES ('This is a very good product', 'jaksu', 1);
 
-INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Teddy': 8, 'Phone':
- 1, 'Sign': 2, 'Mystery Bag': 1, 'Scuba Suita': 1, 'Tire': 1}", "Mon Nov 30 16:09:04 2020");
+INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Teddy': [8, 81.20], 'Phone':
+ [1, 299.94], 'Sign': [2, 1199.98], 'Mystery Bag': [1, 50.99], 'Scuba Suita': [1, 299.99], 'Tire': [1, 9.99]}", "Mon Nov 30 16:09:04 2020");
 
-INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Phone': 1, 'Doll':
-3, 'Mystery Bag': 2}", "Mon Nov 30 16:14:30 2020")
+INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Phone': [1, 299.94], 'Doll':
+[3, 15.60], 'Mystery Bag': [2, 101.98]}", "Wed Dec 09 16:14:30 2020")
