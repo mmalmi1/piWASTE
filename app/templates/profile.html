@@ -92,7 +92,7 @@
         for(var i=0; i<json.length; i++) {
             let { user_id, shopping_cart, timestamp } = json[i];
             time_split = timestamp.split(" ");
-            console.log(json[i]);
+           
             // JSON to dict
             var obj = JSON.parse(shopping_cart.replace(/'/g,"\""));
 
