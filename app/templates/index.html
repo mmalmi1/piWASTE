@@ -49,7 +49,7 @@
         </div>
     </div>`);
     
-    fetch("../get_all_entrys/products").then(function(response){
+    fetch("../products/search=").then(function(response){
         return response.json();
     }).then(function(json) {
         for(var i=0; i < 3; i++) {

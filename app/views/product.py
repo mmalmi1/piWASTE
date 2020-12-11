@@ -39,9 +39,14 @@ def submit_review(product_id=None):
         message = request.form['message']
         user_id = request.cookies.get('user_id')
 
-        command = f'INSERT INTO reviews (text, user_id, product_id) VALUES ("{message}", "{user_id}", "{product_id}")'
+        command = f'SELECT username FROM users WHERE user_id = {user_id}'
+        username = db.get_from_db(command)
+        username = username.fetchall()[0]
+        username = username["username"]
+
+        command = f'INSERT INTO reviews (text, username, product_id) VALUES ("{message}", "{username}", "{product_id}")'
         if db.push_into_db(command):
-            resp = make_response("Review posted!")
+            resp = make_response(product(product_id))
         else: 
             resp = make_response("You have already posted a review for this product!")
     else:
