@@ -52,8 +52,8 @@ INSERT INTO products (name, price, description, image, stock) VALUES ('Sign', 59
 INSERT INTO products (name, price, description, image, stock) VALUES ('Fish Tank', 2.20, 'Fish tank which might need little bit flextape!', 'assets/fishtank.png', 7);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Halloween Mask', 15.20, 'Was searching for stuff when guy came at me.. Hit him hard in the face and this fall off', 'assets/halloween_mask.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Happy Robot', 100.99, 'Very happy robot! Not here to destroy the world or anything', 'assets/happy_robot1.png', 5);
-INSERT INTO products (name, price, description, image, stock, visible) VALUES ('Mystery Bag', 50.99, 'Something very sus inside! Smells funny, definatly worth it to by', 'assets/mystery_bag.png', 5, 0);
-INSERT INTO products (name, price, description, image, stock) VALUES ('Suitcase', 1000.99, '4 Digit code! Could not break it but hackerman like you definatly can', 'assets/mystery_suitcase.png', 5);
+INSERT INTO products (name, price, description, image, stock, visible) VALUES ('Mystery Bag', 50.99, 'Something very sus inside! Smells funny, definitely worth it to buy', 'assets/mystery_bag.png', 5, 0);
+INSERT INTO products (name, price, description, image, stock) VALUES ('Suitcase', 1000.99, '4 Digit code! Could not break it but hackerman like you definitely can', 'assets/mystery_suitcase.png', 5);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Painting', 599.99, 'Not picasso, but really cool', 'assets/painting.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Rocket', 1040.99, 'Planning to escape? Visited Tesla HQs dumpster one day, found this.', 'assets/rocket.png', 1);
 INSERT INTO products (name, price, description, image, stock) VALUES ('Scuba Suita', 299.99, 'Wanna go explore under water areas? Then this is totally for you.', 'assets/scubasuitpng.png', 1);
@@ -68,8 +68,8 @@ INSERT INTO users (username, password, access_level, name, email) VALUES ('admin
 INSERT INTO users (username, password, access_level, name, email, phone, address) VALUES
                   ('jaksu', '1234', 1, 'Jakke Jäyhä', 'jakkej@mail.com', '322', 'Tie 1');
 
-INSERT INTO reviews (text, username, product_id) VALUES ('Test review', 'admin', 1);
-INSERT INTO reviews (text, username, product_id) VALUES ('Another test review', 'jaksu', 1);
+INSERT INTO reviews (text, username, product_id) VALUES ('I like it', 'admin', 1);
+INSERT INTO reviews (text, username, product_id) VALUES ('This is a very good product', 'jaksu', 1);
 
 INSERT INTO purchase_history (user_id, shopping_cart, timestamp) VALUES ("2", "{'Teddy': 8, 'Phone':
  1, 'Sign': 2, 'Mystery Bag': 1, 'Scuba Suita': 1, 'Tire': 1}", "Mon Nov 30 16:09:04 2020");

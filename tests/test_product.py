@@ -6,5 +6,5 @@ def test_product(client):
     
     # Some basic checks to make sure it is showing the right data
     assert b'TestProduct' in product_page.data
-    assert b'Add to Basket' in product_page.data
+    assert b'Shopping Cart' in product_page.data
     assert b'This is a test description' in product_page.data
