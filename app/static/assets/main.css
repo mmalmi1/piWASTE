@@ -117,6 +117,10 @@ html, body {
     margin-left: 30px; 
 }
 
+.purchase_history {
+    margin-top: 25px;
+}
+
 /* Disable profile and shopping cart buttons */
 button:disabled{
     display: none;

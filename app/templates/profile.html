@@ -92,7 +92,7 @@
         for(var i=0; i<json.length; i++) {
             let { user_id, shopping_cart, timestamp } = json[i];
             time_split = timestamp.split(" ");
-
+           
             // JSON to dict
             var obj = JSON.parse(shopping_cart.replace(/'/g,"\""));
 
@@ -105,7 +105,7 @@
             $(".buy-date").last().append(`${time_split[2]}. ${time_split[1]} ${time_split[4]}, ${time_split[3]}`);
 
             for(var key in obj){
-                $(".items").last().append(`${key}: ${obj[key]} <br>`);
+                $(".items").last().append(`${key} (${obj[key][0]}) ${obj[key][1]}€ <br>`);
             }
         };
 
