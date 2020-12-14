@@ -33,7 +33,7 @@ def test_get_from_db(app):
             "name": "Teddy",
             "price": 10.15,
             "description": "Little broken teddy trying to find new home. Might need some" + \
-                           " additional cleaning. Otherwise in perfect condition",
+                           " additional cleaning. Otherwise in perfect condition.",
             "image": 'assets/broken_teddy1.png',
             "stock": 10
         }
