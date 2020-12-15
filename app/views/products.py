@@ -11,13 +11,12 @@ def products():
 @mod.route('/products/search=<string:name>', methods=['GET'])
 def search(name=None):
     if name == None:
-        command = f'SELECT * FROM products'
+        command = f'SELECT product_id, name, price, description, image, stock FROM products WHERE visible = 1'
     else:    
-        command = f'SELECT * FROM products WHERE name LIKE "%{name}%"'
+        command = f'SELECT product_id, name, price, description, image, stock FROM products WHERE name LIKE "%{name}%" AND visible = 1'
     entrys = db.get_from_db(command)
     payload = []
 
     for i in entrys:
-        if i[-1] != 0: # Only return visible products
-            payload.append({'id': i[0], 'name': i[1], 'price': i[2], 'description': i[3], 'image': i[4], 'stock': i[5]})
+        payload.append({'product_id': i[0], 'name': i[1], 'price': i[2], 'description': i[3], 'image': i[4], 'stock': i[5]})
     return jsonify(payload)
