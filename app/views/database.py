@@ -14,7 +14,13 @@ def create_product():
 
     """
     vals = request.args
-    access_level = eval(request.cookies.get('access_level'))
+
+    # Check access level from database
+    user_id = eval(request.cookies.get('user_id'))
+    command = f'SELECT access_level FROM users WHERE user_id="{user_id}"'
+    user = db.get_from_db(command).fetchone()
+    access_level = user["access_level"]
+
     if access_level < 2:
         return Response("Unauthorized", 403)
     command = f'INSERT INTO products (name, price, description, stock, image, visible) VALUES ("{vals.get("name")}", "{vals.get("price")}", "{vals.get("description")}", "{vals.get("stock")}", "assets/placeholder.png", "{vals.get("visible", 1)}")'
