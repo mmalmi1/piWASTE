@@ -53,7 +53,7 @@
         return response.json();
     }).then(function(json) {
         for(var i=0; i < 3; i++) {
-            let { id, name, price, description, image, stock } = json[i];
+            let { product_id, name, price, description, image, stock } = json[i];
             // Create clone so old one doesn't get erased!
             card = raw.clone();
             
@@ -67,7 +67,7 @@
             $(".card-description").last().text(description);
             $(".product-image").last().attr("src", "static/" + image);
 
-            var url = "product/".concat(id);
+            var url = "product/".concat(product_id);
             $(".product-link").last().attr("href", url);
 
             
