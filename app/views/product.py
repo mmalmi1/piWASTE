@@ -47,7 +47,7 @@ def submit_review(product_id=None):
         command = f'INSERT INTO reviews (text, username, product_id) VALUES ("{message}", "{username}", "{product_id}")'
         if db.push_into_db(command):
             resp = make_response(product(product_id))
-        else: 
+        else:
             resp = make_response("You have already posted a review for this product!")
     else:
         resp = make_response("Please login to leave review!")
