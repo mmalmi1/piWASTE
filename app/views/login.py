@@ -8,12 +8,10 @@ def login():
     """
     Login returns three cookies:
         logged_in: True/False string
-        access_level: user access level integer as string
         user_id: user id integer as string
     """
     error = None
     logged_in = 'False'
-    access_level = '0'
     user_id = '0'
     resp = make_response(render_template('login.html'))
     if request.method == 'POST':
@@ -28,11 +26,9 @@ def login():
             resp = make_response(render_template('login.html', error=error))
         else:
             logged_in = 'True'
-            access_level = str(user["access_level"])
             user_id = str(user["user_id"])
             resp = make_response(redirect(url_for('index')))
     resp.set_cookie('logged_in', logged_in)
-    resp.set_cookie('access_level', access_level)
     resp.set_cookie('user_id', user_id)
     return resp
 
@@ -43,6 +39,5 @@ def logout():
     """
     resp = make_response(redirect(url_for('index')))
     resp.set_cookie('logged_in', 'False')
-    resp.set_cookie('access_level', "0")
     resp.set_cookie('user_id', '0')
     return resp

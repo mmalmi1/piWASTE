@@ -33,8 +33,8 @@ def create_product():
 def create_product_yaml():
     """
     Eat a yaml, and create product from the data.
-    Example curl command:
-    curl --cookie 'access_level=2' -X POST '127.0.0.1:5000/admin/create_product_yaml' --data-binary @prod_list.yml
+    Example curl command. Only admin (user id 0) has the required access level to use this:
+    curl --cookie 'user_id=1' -X POST '127.0.0.1:5000/admin/create_product_yaml' --data-binary @prod_list.yml
 
     Sample of prod_list.yml:
     ------------------------------------------------------
@@ -54,6 +54,14 @@ def create_product_yaml():
     ------------------------------------------------------
 
     """
+    # Check access level from database
+    user_id = eval(request.cookies.get('user_id'))
+    command = f'SELECT access_level FROM users WHERE user_id="{user_id}"'
+    user = db.get_from_db(command).fetchone()
+    access_level = user["access_level"]
+    if access_level < 2:
+        return Response("Unauthorized", 403)
+
     product_yaml = full_load(request.get_data())
     products = product_yaml.get("products", [])
     for p in products:
