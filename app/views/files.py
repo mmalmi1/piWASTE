@@ -5,12 +5,6 @@ import os
 
 mod = Blueprint('files', __name__)
 
-@mod.route('/files/', methods=['GET'])
-def file_hint():
-  """
-  Just a quick hint for finding files
-  """
-  return "You are on the right track. Files are hidden somewhere close"
 
 @mod.route('/files/<path:dir_name>', methods=['GET'])
 def files(dir_name):
@@ -21,9 +15,6 @@ def files(dir_name):
   head_of_path, tail_of_path = os.path.split(current_app.instance_path)
 
   abs_path = os.path.join(head_of_path, dir_name)
-
-  if not os.path.exists(abs_path):
-      return "You are on the right track. Files are hidden somewhere close"
 
   if os.path.isfile(abs_path):
       return send_file(abs_path)
