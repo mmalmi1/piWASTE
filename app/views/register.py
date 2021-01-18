@@ -18,11 +18,6 @@ def register():
         password = request.form['password']
         # passwordRepeat = request.form['passwordRepeat']
 
-        command = f'SELECT * FROM users WHERE product_id = "123"'
-        prod = db.get_from_db(command)
-        prod = prod.fetchall()[0]
-        print(prod)
-
         command = f'INSERT INTO users (username, name, email, phone, address, password, access_level) VALUES ("{username}", "{name}", "{email}", "{phone}", "{address}", "{password}", 1)'
 
 
