@@ -36,12 +36,14 @@ def create_app(test_config=None):
     from app.views import product
     from app.views import shopping_cart
     from app.views import profile
+    from app.views import register
     app.register_blueprint(login.mod)
     app.register_blueprint(products.mod)
     app.register_blueprint(database.mod)
     app.register_blueprint(product.mod)
     app.register_blueprint(shopping_cart.mod)
     app.register_blueprint(profile.mod)
+    app.register_blueprint(register.mod)
 
     db.init_app(app)
 

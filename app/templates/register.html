@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+   <!-- Custom styles for this template -->
+      
+{% endblock %}
+
+
+{% block body %}
+
+<div id="main_area" class="row-fluid" style="padding-top: 10%;">
+    <div class="span10 offset1">
+        <div id="formAlert" class="alert hide">  
+          <a class="close">×</a>  
+          <strong>Warning!</strong> Missing field or illegal character detected!
+        </div>
+</div>
+
+<div class="container">
+    <div class="main-body" style="padding-top: 10%;">
+        <div class="row gutters-sm justify-content-center align-self-center">
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form name="register" action="" method="post">
+                            <div class="row">
+                                <h6 class="mb-0">Name</h6>
+                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{
+                                    request.form.name }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Address</h6>
+                                <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="{{
+                                    request.form.address }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Phone</h6>
+                                <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" value="{{
+                                    request.form.phone }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Email</h6>
+                                <input type="text" class="form-control" id="email" placeholder="Email" name="email" value="{{
+                                    request.form.email }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Username</h6>
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="username" value="{{
+                                    request.form.username }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Password</h6>
+                                <input type="password" id="passwordInput" class="form-control" placeholder="Password" name="password" value="{{
+                                    request.form.password }}">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <h6 class="mb-0">Repeat Password</h6>
+                                <input type="password" id="passwordInputRepeat" class="form-control" placeholder="Repeat Password" name="passwordRepeat" value="{{
+                                    request.form.passwordrepeat }}">
+                            </div>
+                            <hr>
+                            <div class="row justify-content-center align-self-center">
+                                <button class="btn btn-outline-dark edit-button" type="submit">Submit changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function () {
+    $('form[name="register"]').on("submit", function (e) {
+
+        pw1 = $(this).find('input[id="passwordInput"]');
+        pw2 = $(this).find('input[id="passwordInputRepeat"]');
+        if($.trim(pw1.val()) != $.trim(pw2.val())) {
+            // Check if passwords match
+            e.preventDefault();   
+            $("#formAlert").slideDown(400); 
+        } else {
+            // Checks if any form contains illegal char or is missing value
+            var ids = ['name', 'address', 'phone', 'email', 'username', 'passwordInput', 'passwordInputRepeat'];
+            for(var i = 0; i < ids.length; i++) {
+                var id = $(this).find('input[id=' + ids[i] + ']');
+                id = $.trim(id.val());
+                if (id === "") {
+                    e.preventDefault();   
+                    $("#formAlert").slideDown(400);   
+                } else if (/\&|\<|\>|\/|\\|\"|\'|\?|\+|\-|\*|\´/.test(id)) {
+                    e.preventDefault();   
+                    $("#formAlert").slideDown(400);                  
+                }
+            }
+        }
+    });
+
+    $(".alert").find(".close").on("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).closest(".alert").slideUp(400); 
+    });
+});
+</script>
+
+{% endblock %}

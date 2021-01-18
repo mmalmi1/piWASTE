@@ -24,10 +24,14 @@
                 <button class="login-page-btn btn btn-lg btn-primary btn-block" type="submit">
                     Sign in
                 </button>
+                <hr>
+                <a href="/register" class="text-decoration-none">Register</a>
                 <p class="mt-5 mb-3 text-muted">
                     &copy; 2020
                 </p>
             </form>
+            <hr>
+
             {% if error %}
             <p class="error"><strong>Error:</strong> {{ error }}
             {% endif %}
