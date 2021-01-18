@@ -4,3 +4,4 @@ ve/
 .vscode/
 instance/
 .env
+docs/only_for_administration
