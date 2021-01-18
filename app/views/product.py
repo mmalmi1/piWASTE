@@ -3,8 +3,8 @@ from app import db
 
 mod = Blueprint('product', __name__)
 
-@mod.route('/product/<int:productId>', methods=['GET'])
-def product(productId=None):
+@mod.route('/product/<int:product_id>', methods=['GET'])
+def product(product_id=None):
     '''
     Product view.
     CREATE TABLE products (
@@ -17,12 +17,39 @@ def product(productId=None):
     );
     '''
 
-    command = f'SELECT * FROM products WHERE product_id = {productId}'
+    command = f'SELECT * FROM products WHERE product_id = {product_id}'
     prod = db.get_from_db(command)
     prod = prod.fetchall()[0]
-    img = """ "{{url_for('static', filename='""" + prod["image"] + """')}}" """
-    print(img)
+
+    command = f'SELECT * FROM reviews WHERE product_id = {product_id}'
+    reviews = db.get_from_db(command)
+    reviews = reviews.fetchall()
+
     resp = make_response(render_template('product.html', product_id=prod["product_id"], name=prod["name"],
                                         price=prod["price"], description=prod["description"],
-                                        image=img, stock=prod["stock"]))
+                                        image=prod["image"], stock=prod["stock"], reviews=reviews))
+    return resp
+
+@mod.route('/product/<int:product_id>/submit_review', methods=['POST'])
+def submit_review(product_id=None):
+    '''
+    Post a review for a product
+    '''
+    if request.cookies.get('logged_in') == "True":
+        message = request.form['message']
+        user_id = request.cookies.get('user_id')
+
+        command = f'SELECT username FROM users WHERE user_id = {user_id}'
+        username = db.get_from_db(command)
+        username = username.fetchall()[0]
+        username = username["username"]
+
+        command = f'INSERT INTO reviews (text, username, product_id) VALUES ("{message}", "{username}", "{product_id}")'
+        if db.push_into_db(command):
+            resp = make_response(product(product_id))
+        else:
+            resp = make_response("You have already posted a review for this product!")
+    else:
+        resp = make_response("Please login to leave review!")
+
     return resp

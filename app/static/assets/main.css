@@ -16,6 +16,20 @@ a:hover {
     height: 200px;
 }
 
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.main-page-card {
+    margin-bottom: 30px;
+}
+
+.inner-card {
+    padding-left: 20px;
+}
+
 .product-bg-img {
     background-color: #D9D9DD;
     width: 400px;
@@ -54,26 +68,65 @@ a:hover {
     margin-left: 30px; 
 }
 
-.logout-btn:hover {
-    background-color: #2F394C; 
+.logout-btn:hover,.logout-btn:active {
+    background-color: #2F394C;
+    border-color: #D51D00; 
+}
+
+.login-btn:hover {
+    background-color: #2F394C;
+    border-color: #BC75E8; 
 }
 
 .login-btn {
-    color: #30C636;
-    border-color: #30C636;
+    color: #BC75E8;
+    border-color: #BC75E8;
+    background-color: #2F394C;
     margin-left: 30px; 
 }
 
-.invisible {
-    visibility: hidden;
+.login-btn:active {
+    color: #aa11bb;
+    border-color: #BC75E8;
+    background-color: #2F394C;
+    margin-left: 30px; 
 }
 
-.col-md-4 {
+.profile-btn {
+    color: #BC75E8;
+    border-color: #BC75E8;
+    margin-left: 30px; 
+}
+.profile-btn:hover {
+    color: #BC75E8;
+    border-color: #BC75E8;
+    background-color: #2F394C;
+    margin-left: 30px; 
+}
+
+.shopcart-btn {
+    margin-left: 30px;
+    color: #BC75E8;
+    border-color: #BC75E8;
+}
+
+.shopcart-btn:hover {
+    color: #BC75E8;
+    border-color: #BC75E8;
+    background-color: #2F394C;
+    margin-left: 30px; 
+}
+
+.purchase_history {
+    margin-top: 25px;
+}
+
+/* Disable profile and shopping cart buttons */
+button:disabled{
+    display: none;
+}
+
 .card-body {
     text-align: left;
     padding: 30px;
-}
-
-.col-lg-4 {
-    margin-bottom: 40px;
 }

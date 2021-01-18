@@ -41,14 +41,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('products') }}">Products <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('products.products') }}">Products <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Placeholder</a>
                     </li>
                 </ul>
                 <!--
@@ -56,8 +51,19 @@
                     <button style="visibility: hidden;" type="submit"></button>
                 </a>
                 -->
+                <a class="form-inline mt-2 cart-link mt-md-0" href="{{ url_for('shopping_cart.shopping_cart') }}">
+                    <div class="my-2 my-sm-0" preserveAspectRatio="xMidYMid slice" focusable="false" id="shopcartButton">
+                        <img src="{{url_for('static', filename='assets/shopping_cart.png')}}"  alt="No Image" width="50" height="50">
+                        <title>Shopping Cart</title>
+                        <rect width="100%" height="100%" fill="#eee"/>
+                    </div> 
+                </a>
                 <a class="form-inline mt-2 mt-md-0" href="{{ url_for('profile.profile') }}">
-                    <button class="btn btn-outline-success my-2 my-sm-0" id="profileButton" type="submit">Profile</button>
+                    <div class="my-2 my-sm-0" preserveAspectRatio="xMidYMid slice" focusable="false" id="profileButton">
+                        <img src="{{url_for('static', filename='assets/profile.png')}}"  alt="No Image" width="50" height="50">
+                        <title>Profile</title>
+                        <rect width="100%" height="100%" fill="#eee"/>
+                    </div> 
                 </a>
                 <a class="form-inline mt-2 mt-md-0" id="logInButtonLink" href="">
                     <button class="btn btn-outline-success my-2 my-sm-0" id="logInButton" type="submit"></button>
@@ -81,16 +87,18 @@
         console.log(cookie);
 
         if (cookie['logged_in'] != 'True') {
-            //Make Profile button invisible
-            $("#profileButton").addClass("invisible");
+            //Make Profile and shopcart buttons invisible
+            $("#profileButton").prop('disabled', true);
+            $("#shopcartButton").prop('disabled', true);
 
             // Toggle button to Login
             $("#logInButtonLink").attr("href", "{{ url_for('login.login') }}");
             $("#logInButton").addClass("login-btn").removeClass("logout-btn").text("Login");
         }
         else {
-            //Make Profile button visible
+            //Make Profile and shopcart buttons visible
             $("#profileButton").removeClass("invisible");
+            $("#shopcartButton").removeClass("invisible");
 
             // Toggle button to Logout
             $("#logInButtonLink").attr("href", "{{ url_for('login.logout') }}");

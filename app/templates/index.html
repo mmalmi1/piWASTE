@@ -13,7 +13,7 @@
 <section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">Welcome to piWASTE!</h1>
-        <p class="lead text-muted">This here could be some description about the website. Galapagosinpingviini (Spheniscus mendiculus) on Galápagossaarilla endeemisenä elävä pingviinilaji. Se on maailman pohjoisin pingviinilaji ja ainoa, joka joskus liikkuu pohjoiselle pallonpuoliskolle asti.</p>
+        <p class="lead text-muted">The most secure web store on the planet!</p>
     </div>
 </section>
 
@@ -33,11 +33,14 @@
 {% block script %}
 <script type=text/javascript>
     var raw = $(`
-    <div class="col-lg-4 col-md-6 card-group">
-        <div class="card md-4 box-shadow" style="width: 22rem;">
+    <div class="main-page-card card-group">
+        <div class="card inner-card md-4 box-shadow" style="width: 22rem;">
             <a class="product-link" href="">
                 <div class="card-body">
-                    <div class="product-placeholder-img mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></div>                                       
+                    <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <img class="product-image" alt="No Image" width="250" height="250"
+                        <rect width="100%" height="100%" fill="#eee"/>
+                    </div>                  
             </a>
                     <h2 class="card-title">Name</h2>
                     <h3 class="card-price">1.99€</h3>
@@ -46,28 +49,25 @@
         </div>
     </div>`);
     
-    fetch("../get_all_entrys/products").then(function(response){
+    fetch("../products/search=").then(function(response){
         return response.json();
     }).then(function(json) {
-        for(var i=0; i<json.length; i++) {
-            let { id, name, price, description, image, stock } = json[i];
-            // Create clone so old one donesn't get erased!
+        for(var i=0; i < 3; i++) {
+            let { product_id, name, price, description, image, stock } = json[i];
+            // Create clone so old one doesn't get erased!
             card = raw.clone();
             
             // Append item to deck, find by class card-deck
             card.appendTo($(".card-deck"));
             
-            if( (i%3) == 0) {
-                // If first in a row append card-group (for same content length)
-                $(".col-md-4").last().addClass("card-group");
-            }
             
             // Insert values from DB
             $(".card-title").last().text(name);
             $(".card-price").last().text(price).append("€");
             $(".card-description").last().text(description);
+            $(".product-image").last().attr("src", "static/" + image);
 
-            var url = "product/".concat(id);
+            var url = "product/".concat(product_id);
             $(".product-link").last().attr("href", url);
 
             

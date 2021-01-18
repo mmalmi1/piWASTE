@@ -46,10 +46,8 @@ docker-compose down
 If you want to try building a clean container, you can build the image and run it:
 ```bash
 docker build . -t piwaste
-docker run --network=host piwaste # network=host is needed to be able to access it from the outside
+docker run -it --network=host piwaste # network=host is needed to be able to access it from the outside
 ```
-TODO: The docker currently container doesn't include a `.sqlite` database file, so things most likely won't work without using `docker-compose`.
-
 ## Requirements
 
 ```bash

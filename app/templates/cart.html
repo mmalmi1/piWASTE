@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block head %}
+   
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='assets/main.css')}}>
+
+    <!-- JS -->
+   <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+     
+{% endblock %}
+
+
+{% block body %}
+
+<!--Section: Block Content-->
+<section>
+    <!--Grid row-->
+    <div class="row">
+    <!--Grid column-->
+        <div class="col-lg-6 mx-auto card-deck" style="padding: 100px;">
+            <h5 class="mx-auto cart-item-amount"></h5>
+
+        </div>
+
+    </div>
+    
+</section>
+
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    var raw2 = $(`
+    <!-- Card -->
+    <div class="col-lg-6 mx-auto">
+        <div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div><strong>Total amount of</strong>
+                </div>
+                <h5 class="total-price"><span><strong>53.98€</strong></span></h5>
+                </li>
+            </ul>
+            <form action="" method="post">
+                <button class="btn btn-primary btn-block" type="submit">Buy</button>
+            </form>
+        </div>
+    </div>`);
+
+    fetch("../get_shopping_cart").then(function(response){
+        return response.json();
+    }).then(function(json) {
+        let total = 0;
+        let totalAmount = 0;
+        for (var i in json) {
+            let { amount, description, name, price, image } = json[i];
+            var raw = $(`
+            <!-- Card -->
+            <div class="mb-3">
+                <div class="pt-4 wish-list">
+                    <div class="row mb-4">
+                        <div class="col-md-5 col-lg-3 col-xl-3">
+                            <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <img class="product-image" alt="IMAGE NOT FOUND" width="150" height="150"
+                                    <rect width="100%" height="100%" fill="#eee"/>
+                                </div>   
+                                <a href="#!">
+                                    <div class="mask">
+                                        <div class="mask rgba-black-slight"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-9 col-xl-9">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="text-left">
+                                        <h5 class="product-name"></h5>
+                                        <p class="pr-5 product-description text-muted small"></p>
+                                    </div>
+                                    <div class="col-md-6 btn-group-lg">
+                                        <div class="row def-number-input number-input safari_only xs-4 w-100 justify-content-center align-self-center" style="text-align:center"">
+                                            <a href="{{ url_for('shopping_cart.shopping_cart') }}">
+                                                <button onclick="removeFromCart( ${i} )" class="mx-auto minus decrease btn btn-outline-dark">-</button>
+                                            </a>
+                                            <a href="{{ url_for('shopping_cart.shopping_cart') }}">
+                                                <button onclick="addToCartByAmount( ${i}, ${amount} )" class="mx-auto plus increase btn btn-dark">+</button>
+                                            </a>
+                                            <input type="text" class="form-control col-sm-3 product-quantity" style="text-align:center;height:40px"
+                                                id="countNumber" placeholder="" aria-label="" aria-describedby="basic-addon1" value=1 readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mr-5">
+                                    <div>
+                                        <a href="{{ url_for('shopping_cart.shopping_cart') }}" type="button" onclick="removeAllFromCart( ${i} )" class="card-link-secondary small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i>
+                                            <div>
+                                            <div class="mx-auto" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                                <img src="{{url_for('static', filename='assets/trashcan.png')}}"  alt="No Image" width="50" height="50">
+                                                <title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#eee"/>
+                                        </div> 
+                                        </a>
+                            </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p class="product-price"><span><strong id="summary"></strong></span></p>
+                                        <hr>
+                                        <p class="total-product-price"><span><strong id="summary"></strong></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <hr class="mb-4">  
+                </div>
+            </div>`);
+            
+            if( amount == 0) {
+                // If amount is 0, dont show the item
+                continue;
+            }
+            // Create clone so old one doesn't get erased!
+            card = raw.clone();
+            
+            // Append item to deck, find by class card-deck
+            card.appendTo($(".card-deck"));
+
+            // Insert values from DB
+            $(".product-name").last().text(name);
+            $(".product-description").last().text(description);
+            $(".product-quantity").last().val(amount);
+            $(".product-price").last().text(`Per piece: ${price}€`);
+            $(".total-product-price").last().text(`In total: ${price*amount}€`);
+            $(".product-image").last().attr("src", "static/" + image);
+            $
+            total += price*amount;
+            totalAmount += amount;
+
+        }
+
+        if (totalAmount == 0) {
+            // If no items in cart
+            $("section").append("<h4>You don't have anything in your cart!</h4>");
+        }
+        if (totalAmount != 0) {
+            // Otherwise
+            sum = raw2.clone();
+            sum.appendTo($(".card-deck"));
+
+            $(".total-price").last().text(total.toFixed(2)).append("€");
+            $(".cart-item-amount").first().text(`Cart: (${amounts}) items`);
+        }
+               
+    });
+</script>
+
+{% endblock %}
